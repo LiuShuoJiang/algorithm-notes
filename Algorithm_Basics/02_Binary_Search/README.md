@@ -12,10 +12,10 @@
 
 [这篇博文](https://blog.csdn.net/raelum/article/details/128687109) 讲解得较好。
 
-### 情况一：(如果$mid$属于左边)
+### 情况一：(如果 $mid$ 属于左边)
 
 在右半段寻找左边界(即寻找符合性质的第一个点)
-每次将区间划分为$[l, mid]$和$[mid + 1, r]$ ($[l, mid]$是因为$mid$点可能就是左边界，所以这里不用$[l, mid - 1]$)
+每次将区间划分为 $[l, mid]$ 和 $[mid + 1, r]$ ( $[l, mid]$ 是因为 $mid$ 点可能就是左边界，所以这里不用 $[l, mid - 1]$ )
 
 - $mid=\frac{l+r}{2}$
 - If (`check(mid)`是否满足绿色性质)
@@ -37,17 +37,17 @@ int bsearch_1(int l, int r) {
 }
 ```
 
-### 情况二：(如果$mid$属于右边)
+### 情况二：(如果 $mid$ 属于右边)
 
 在左半段寻找右边界(即寻找符合性质的最后一个点)
-每次将区间划分为$[l, mid - 1]$和$[mid, r]$ (这是因为如果$mid$点符合性质，那么下次划分右边界肯定从$mid-1$开始)
+每次将区间划分为 $[l, mid - 1]$ 和 $[mid, r]$  (这是因为如果 $mid$ 点符合性质，那么下次划分右边界肯定从 $mid-1$ 开始)
 
 - $mid=\frac{l+r+1}{2}$
 - If (`check(mid)`是否满足红色性质)
   - True: Desired point must be in $[mid, r]$: $l\Leftarrow mid$
   - False: Desired point must be in $[l, mid-1]$: $r\Leftarrow mid-1$
 
-$mid=\frac{l+r+1}{2}$这里的$+1$是因为除法下取整，在`r = l + 1`时更新`l = mid`时会出现`l = mid = l`的死循环。$+1$则相当于上取整，解决了这个隐患。
+$mid=\frac{l+r+1}{2}$ 这里的 $+1$ 是因为除法下取整，在`r = l + 1`时更新`l = mid`时会出现`l = mid = l`的死循环。 $+1$ 则相当于上取整，解决了这个隐患。
 
 ```C++
 bool check(int x) {/*检查x是否满足某种性质*/}
