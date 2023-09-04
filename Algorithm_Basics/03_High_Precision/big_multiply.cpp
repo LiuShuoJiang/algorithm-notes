@@ -28,6 +28,8 @@ vector<int> mul(vector<int> &A, int b) {
         t /= 10;  //进位
     }
 
+    while (C.size() > 1 && C.back() == 0) C.pop_back();
+
     return C;
 }
 

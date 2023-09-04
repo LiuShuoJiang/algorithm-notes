@@ -5,6 +5,7 @@
 C++中将大整数存储在数组里，数组第零位存数字的个位，方便进位，通过代码模拟人工加减法。
 
 减法的判断规则：
+
 $$
 A-B:\begin{cases}
 	A\geqslant B\rightarrow A-B\\
@@ -13,6 +14,7 @@ A-B:\begin{cases}
 $$
 
 减法每一位的计算方式：
+
 $$
 A_i-B_i-t\begin{cases}
 	\geqslant 0: A_i-B_i-t\\
