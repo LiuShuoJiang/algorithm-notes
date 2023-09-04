@@ -29,19 +29,19 @@
 - 重复如上的三个步骤，直到左指针大于右指针。
 - 现在，所有小于等于基准元素的元素都位于左边，所有大于等于基准元素的元素都位于右边。
 
-以上的步骤涉及很多边界问题比较麻烦，建议直接记忆模板。
+以上的步骤涉及很多边界问题比较麻烦，建议直接记忆模板。此模板一般会在面试时用到，但机试或竞赛难以用到。
 
 ```C++
 void quick_sort(int q[], int l, int r) {
   if (l >= r) return;
 
-  int i = l - 1, j = r + 1, x = q[l + r >> 1];
+  int i = l - 1, j = r + 1, x = q[l + r >> 1];  //也可以写x = q[l]，但不能写x = q[r]，对应最后递归的语句quick_sort(q, l, j), quick_sort(q, j + 1, r);
   while (i < j) {
     do i++; while (q[i] < x);
     do j--; while (q[j] > x);
     if (i < j) swap(q[i], q[j]);
   }
-  quick_sort(q, l, j), quick_sort(q, j + 1, r);
+  quick_sort(q, l, j), quick_sort(q, j + 1, r);  //此处也可把j改为i，但开始的x初始化应写为x = q[r]
 }
 ```
 
