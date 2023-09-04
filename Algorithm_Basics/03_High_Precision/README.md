@@ -16,7 +16,7 @@ $$
 减法每一位的计算方式：
 
 $$
-A_i-B_i-t\begin{cases}
+A_i-B_i-t:\begin{cases}
 	\geqslant 0: A_i-B_i-t\\
 	<0: A_i-B_i+10-t\\
 \end{cases}
