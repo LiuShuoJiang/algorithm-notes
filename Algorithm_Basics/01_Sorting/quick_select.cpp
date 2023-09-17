@@ -23,10 +23,12 @@ int n, k;
 int q[N];
 
 int quick_sort(int l, int r, int k) {
+    //也可写 if (l >= r) 但在快速排序中只能写 if (l >= r) 不能写=
     if (l == r) return q[l];
 
     int x = q[l], i = l - 1, j = r + 1;
     while (i < j) {
+        // 也可改为do while
         while (q[++i] < x);
         while (q[--j] > x);
         if (i < j) swap(q[i], q[j]);

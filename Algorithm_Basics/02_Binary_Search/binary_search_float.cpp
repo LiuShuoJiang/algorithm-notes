@@ -23,7 +23,7 @@ int main() {
     double l = -1000, r = 1000;
 
     //也可以直接for循环100次
-    while (r - l >= 1e-7) {
+    while (r - l >= 1e-8) {
         double mid = (l + r) / 2;
         if (mid * mid * mid <= x) l = mid;
         else r = mid;
