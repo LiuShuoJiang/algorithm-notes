@@ -1,2 +1,3 @@
-# algorithm-notes
-Track my algorithm learning progress
+# Algorithm Notes
+
+Algorithms in C++ (currently in Chinese only)
