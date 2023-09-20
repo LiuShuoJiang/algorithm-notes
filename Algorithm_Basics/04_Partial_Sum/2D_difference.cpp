@@ -59,6 +59,7 @@ int main() {
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
+            // 也可写 a[i][j] = a[i-1][j]+a[i][j-1]-a[i-1][j-1]+b[i][j]; 然后输出a
             b[i][j] += b[i - 1][j] + b[i][j - 1] - b[i - 1][j - 1];
         }
     }
