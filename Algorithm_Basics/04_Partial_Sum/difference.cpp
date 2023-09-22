@@ -46,7 +46,7 @@ int main() {
     // 也可以 a[i] = a[i - 1] + b[i]; 然后输出a[i]
     for (int i = 1; i <= n; i++) b[i] += b[i - 1];
 
-    for (int i = 1; i <= n; i++) printf("%d", b[i]);
+    for (int i = 1; i <= n; i++) printf("%d ", b[i]);
 
     return 0;
 }
