@@ -1,3 +1,5 @@
 # Algorithm Notes
 
-Algorithms in C++ (currently in Chinese only)
+All-in-one repository for useful algorithms in C++ (currently in Chinese only)
+
+keep updating...
