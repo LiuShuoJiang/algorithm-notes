@@ -96,14 +96,16 @@ int main() {
     return 0;
 }
 
-// unique()函数的实现方法(数组应该sort过)
+// unique()函数的实现方法(数组应该sort过[适用于有序数组])
+// 第i个元素若为unique元素，应满足如下两个条件之一：
+//1. 该元素为数组第一个(i == 0) 2. 该元素与前一个不同(a[i] != a[i-1])
 /*
 vector<int>::iterator unique(vector<int> &a) {
     int j = 0;
     for (int i = 0; i < a.size(); i++) {
         if (!i || a[i] != a[i - 1])
             a[j++] = a[i];
-        // a[0] ~ a[j - 1] 所有a中不重复的数
+        // 得到的 a[0] ~ a[j - 1] 就是所有a中不重复的数
     }
     return a.begin() + j;
 }
