@@ -22,7 +22,7 @@ I k x，表示在第k个插入的数后面插入一个数x（此操作中k均大
 
 数据范围
 1≤M≤100000
-所有操作保证合法。
+测试样例中，所有操作保证合法。
 */
 
 #include <iostream>
@@ -32,7 +32,7 @@ const int N = 100010;
 
 //head表示头节点的下标(头指针)
 //e[i]表示节点i的值
-//ne[i]表示节点i的next指针是多少
+//ne[i]表示节点i的next指针是多少(也就是节点i的下一个点的下标是多少)
 //idx是一个指针，记录哪些点被分配过(当前已经用到了哪个点)
 int head, e[N], ne[N], idx;
 
@@ -69,9 +69,14 @@ void add_to_head(int x) {
 
     head = idx;  //head现在表示指向第一个元素了，它不再是空指针了
     idx++;  //指针向下移一位，为下一次插入元素做准备
+
+    //模板写法
+    /*
+    e[idx] = x, ne[idx] = head, head = idx++;
+    */
 }
 
-//将x插入第k节点后
+//将x插入下标为k的节点后
 //idx是数组最后一个已经使用过的下标的下一个空位
 void add(int k, int x) {
     e[idx] = x;  //先将元素插进去
@@ -82,7 +87,8 @@ void add(int k, int x) {
 
 //将下标k的点的后面的点删掉
 void remove(int k) {
-    ne[k] = ne[ne[k]];  //让k的指针指向，k下一个人的下一个人，那中间的那位就被挤掉了
+    //让k的指针指向k下一个人的下一个人，那中间的那位就被挤掉了
+    ne[k] = ne[ne[k]]; 
 }
 
 int main() {
@@ -101,6 +107,7 @@ int main() {
             add_to_head(x);
         } else if (op =='D') {
             cin >> k;
+            //处理删除头节点的特殊情况
             if (!k) head = ne[head];
             remove(k - 1);
         } else {

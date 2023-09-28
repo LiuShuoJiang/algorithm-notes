@@ -40,24 +40,62 @@ int e[N], l[N], r[N], idx;
 //初始化
 void init() {
     //0表示左端点，1表示右端点
+    //初始化第一个点的右边是1，第二个点的左边是0
     r[0] = 1, l[1] = 0;
-    idx = 2;
+    idx = 2;  //idx此时已经用掉两个点了
 }
 
-//再下标为k的点的右边插入x
-//注：在下标为k的点的左边插入下可以调用：add(l[k], x);
+//在第k个点的右边插入x
+//注：在下标为k的点的左边插入下可以直接调用：add(l[k], x);
+//因为在k的左边插入一个数等价于在l[k]的右边插入一个数
 void add(int k, int x) {
     e[idx] = x;
     r[idx] = r[k];
     l[idx] = k;
 
-    //先修改r[k]的左指针，再修改r[k]
+    //(顺序不能写反)先修改r[k]的左指针，再修改r[k]
     l[r[k]] = idx;
     r[k] = idx;
+    idx++;
 }
 
 //删除第k个点
 void remove(int k) {
     r[l[k]] = r[k];
     l[r[k]] = l[k];
+}
+
+int main() {
+    cin >> m;
+
+    init();
+
+    while (m--) {
+        string op;
+        cin >> op;
+        int k, x;
+        if (op == "R") {
+            cin >> x;
+            //0和1只是代表头和尾
+            //所以最右边插入只要在指向1的那个点的右边插入就可以了
+            add(l[1], x);
+        } else if (op == "L") {
+            cin >> x;
+            //最左边插入就是在指向0的数的左边插入就可以了
+            //也就是可以直接在0的右边插入
+            add(0, x);
+        } else if (op == "D") {
+            cin >> k;
+            remove(k + 1);
+        } else if (op == "IL") {
+            cin >> k >> x;
+            add(l[k + 1], x);
+        } else {
+            cin >> k >> x;
+            add(k + 1 , x);
+        }
+    }
+
+    for (int i = r[0]; i != 1; i = r[i]) cout << e[i] << ' ';
+    return 0;
 }
