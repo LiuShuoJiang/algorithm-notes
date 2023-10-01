@@ -64,3 +64,5 @@ vector<int>::iterator unique(vector<int> &a) {
     return a.begin() + j;
 }
 ```
+
+> 例题：[区间和](./interval_sum.cpp)
