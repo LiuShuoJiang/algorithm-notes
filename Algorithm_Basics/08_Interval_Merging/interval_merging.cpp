@@ -15,6 +15,17 @@
 数据范围
 1 ≤ n ≤ 100000,
 −10^9 ≤ l_i ≤ r_i ≤ 10^9
+
+输入样例：
+5
+1 2
+2 4
+5 6
+7 8
+7 9
+
+输出样例：
+3
 */
 
 #include <iostream>
@@ -44,6 +55,7 @@ void merge_intervals(vector<PII> &segs) {
         }
     }
 
+    //更新完最后一个区间，循环已经结束了，因此要在后面将最后一个区间插入res
     if (st != -2e9) res.push_back({st, ed});
 
     segs = res;
