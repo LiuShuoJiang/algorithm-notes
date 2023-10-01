@@ -1,6 +1,14 @@
 /*
 输入一串字符串(每个单词之间只有一个空格)
 要求输出每个单词，每个单词占一行
+
+输入例：
+apple orange bread
+
+输出例：
+apple
+orange
+bread
 */
 
 #include <iostream>
