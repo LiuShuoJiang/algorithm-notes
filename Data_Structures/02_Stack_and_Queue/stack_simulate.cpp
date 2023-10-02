@@ -15,9 +15,29 @@
 其中，empty操作的查询结果为YES或NO，query操作的查询结果为一个整数，表示栈顶元素的值。
 
 数据范围
-1≤M≤100000,
-1≤x≤10^9
+1 ≤ M ≤ 100000,
+1 ≤ x ≤ 10^9
 所有操作保证合法。
+
+输入样例：
+10
+push 5
+query
+push 6
+pop
+query
+pop
+empty
+push 4
+query
+empty
+
+输出样例：
+5
+5
+YES
+4
+NO
 */
 
 #include <iostream>
