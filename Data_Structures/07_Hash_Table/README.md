@@ -149,7 +149,11 @@ h\left[ r \right] -p^{r-l+1}\cdot h\left[ l-1 \right] =\sum_{i=1}^r{s\left[ i \r
 =\sum_{i=l}^r{s\left[ i \right] \cdot p^{r-i}}
 $$
 
-可记忆如下公式：字符串 $h$ 的下标 $l$ 至 $r$ 段的哈希值为 $h\left[ r \right] -h\left[ l \right] \cdot p^{r-l+1}$
+可记忆如下公式：字符串 $h$ 的下标 $l$ 至 $r$ 段的哈希值为 $h\left[ r \right] -h\left[ l-1 \right] \cdot p^{r-l+1}$
+
+字符串哈希的公式中 $h\left[ r \right] -h\left[ l-1 \right] \cdot p^{r-l+1}$ ， $h[l-1]$ 要乘上 $p^{r-l+1}$ 的原因举例：
+
+比如`aabbaabb`这个字符串，要求下标`3`到`7`(`bbaab`)这一段哈希值，需要知道 $h[l - 1] = h[2]$ 和 $h[r] = h[7]$ ，即`aa`和`aabbaab`的哈希值，转换为 $p$ 进制就是 ${(11)}_p$ 和 ${(1122112)}_p$ ，我们需要求`bbaab`这一个子串的哈希值，转换为 $p$ 进制就是 ${(22112)}_p$，而将 $h[l-1] \times P[r-l+1]$ 就是左移 $r-l+1$ 位变成 ${(1100000)}_p$ ，而 $h[r] - h[l-1] \times P[r-l+1]$ 就是 ${(22112)}_p$ ，也就是子串`bbaab`的哈希值。
 
 ### 模板与例题
 
