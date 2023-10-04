@@ -64,14 +64,14 @@ int main() {
     cin >> n >> s + 1 >> m >> p + 1;  //下标从1开始
 
     //求next[]数组
-    for(int i = 2, j = 0; i <= m; i++) {
+    for(int i = 2, j = 0; i <= n; i++) {
         while (j && p[i] != p[j + 1]) j = ne[j];
         if (p[i] == p[j + 1]) j++;
         ne[i] = j;
     }
 
     //匹配操作
-    for(int i = 1, j = 0; i <= n; i++) {
+    for(int i = 1, j = 0; i <= m; i++) {
         while (j && s[i] != p[j + 1]) j = ne[j];
         if (s[i] == p[j + 1]) j++;
         if (j == m) { //满足匹配条件，打印开头下标, 从0开始
