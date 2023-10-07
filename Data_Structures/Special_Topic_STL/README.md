@@ -1,5 +1,9 @@
 # C++ STL
 
+[速查网站](https://www.rankred.com/useful-c-cheat-sheets/)
+
+[速查PDF](https://upload.cppreference.com/mwiki/images/e/e7/container-library-overview-2012-12-27.pdf)
+
 通用操作：
 
 - `size()`: 返回元素个数
