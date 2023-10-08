@@ -9,7 +9,7 @@
 按字典序输出所有排列方案，每个方案占一行。
 
 数据范围
-1≤n≤7
+1 ≤ n ≤ 7
 
 输入样例：
 3
@@ -23,31 +23,40 @@
 3 2 1
 */
 
+/*
+递归就是实现位数之间的横向移动，遍历就是实现每一位上的纵向移动，
+两者结合就是全排列。
+有多少位，就有多少层，所以这个需要把数字竖过来放去想象dfs的搜索树结构
+
+回溯时循环没结束，进行循环，循环结束时，往上一层回溯
+*/
+
 #include <iostream>
 using namespace std;
 
 const int N = 10;
 
 int n;
-int path[N];
-bool st[N];
+int path[N];  //用path数组保存排列
+bool st[N];  //用st数组表示数字i是否用过
 
 void dfs(int u) {
+    //当排列的长度为n时，是一种方案，输出
     if (u == n) {  //判断是否位于叶节点
         for (int i = 0; i < n; i++) printf("%d ", path[i]);
         puts("");
         return;
     }
 
-    for (int i = 0; i < n; i++) {
-        if (!st[i]) {
-            path[u] = i;
-            st[i] = true;
-            dfs(u + 1);
+    for (int i = 1; i <= n; i++) {
+        if (!st[i]) {  //如果数字i没有被用过
+            path[u] = i;  //放入空位
+            st[i] = true;  //数字被用，修改状态
+            dfs(u + 1);  //填下一个位
 
             //恢复现场
             //path[u] = 0;
-            st[i] = false;
+            st[i] = false;  //回溯，取出i
         }
     }
 }
