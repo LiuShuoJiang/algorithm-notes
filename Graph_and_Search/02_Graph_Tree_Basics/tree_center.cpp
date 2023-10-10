@@ -38,10 +38,10 @@ using namespace std;
 const int N = 100010, M = N * 2;
 
 int n;
-int h[N], e[M], ne[M], idx;
-bool st[N];
+int h[N], e[M], ne[M], idx;  //邻接表
+bool st[N];  //标记点是否被搜过
 
-int ans = N;
+int ans = N;  //ans记录剩余各个连通块中的点数的最大值
 
 //插入一条从a指向b的边
 void add(int a, int b) {
@@ -51,20 +51,24 @@ void add(int a, int b) {
 
 // 以u为根的子树中的点的数量
 int dfs(int u) {
-    st[u] = true;  //标记该点已经被搜过了
+    st[u] = true;  //标记u这个点已经被搜过了
 
+    //sum记录以u为根的子树的节点数
+    //res记录u的最大子树的节点数
+    //那么n-sum就是u上面的部分的节点数
+    //我们有ans=max(res, n - sum);
     int sum = 1, res = 0;
-    for (int i = h[u]; i != -1; i = ne[i]) {
-        int j = e[i];
-        if (!st[j]) {
-            int s = dfs(j);
-            res = max(res, s);
-            sum += s;
+    for (int i = h[u]; i != -1; i = ne[i]) {  //i是边的编号
+        int j = e[i];  //j是u的邻接点
+        if (!st[j]) {  //避免向上查找
+            int s = dfs(j);  //s是以j为根的子树的节点数
+            res = max(res, s); //记录u的最大子树的节点数
+            sum += s;  //累加u的各个子树的节点数
         }
     }
     res = max(res, n - sum);
-    ans = min(ans, res);
-    return sum;
+    ans = min(ans, res);  //更新答案
+    return sum;  //返回以u为根的子树的节点数
 }
 
 int main() {
