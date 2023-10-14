@@ -97,3 +97,27 @@ i-----1
 j-----1
 s(n) = 3*n^2 + 3: O(n^2)
 ```
+
+## Asymptotic Notations
+
+1. Big-oh Notation for upper bound: $O$
+2. Big-omega Notation for lower bound: $\varOmega$
+3. Big-theta Notation for average bound: $\varTheta$
+
+**Big-oh**: The function $f(n)=O(g(n))$ if $\exists$ positive constants $c$ and $n_0$ such that $f\left( n \right) \leqslant c\cdot g\left( n \right)$ for $\forall n\geqslant n_0$.
+
+Example: $f(n)=2n+3$: $2n+3\leqslant 10n$ for $n\geqslant 1$, $2n+3\leqslant 5n^2$ for $n\geqslant 1$
+
+$$
+\underset{\mathrm{lower} \mathrm{bound}}{\underbrace{1<\log n<\sqrt{n}}}<\underset{\mathrm{average} \mathrm{bound}}{\underbrace{n}}<\underset{\mathrm{upper} \mathrm{bound}}{\underbrace{n\log n<n^2<n^3<\cdots <2^n<3^n<\cdots n^n}}
+$$
+
+**Big-omega**: The function $f(n)=\varOmega (g(n))$ if $\exists$ positive constants $c$ and $n_0$ such that $f\left( n \right) \geqslant c\cdot g\left( n \right)$ for $\forall n\geqslant n_0$.
+
+Example: $f(n)=2n+3$: $f(n)=\varOmega (n)$, $f(n)=\varOmega(\log n)$
+
+**Big-theta**(recommend): The function $f\left( n \right) =\varTheta \left( g\left( n \right) \right)$ if $\exists$ positive constant $c_1$, $c_2$ and $n_0$ such that $c_1g\left( n \right) \leqslant f\left( n \right) \leqslant c_2g\left( n \right)$.
+
+Example: $f(n)=2n+3$: $f(n)=\varTheta (n)$
+
+
