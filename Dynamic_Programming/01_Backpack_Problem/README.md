@@ -26,7 +26,7 @@
 可以得到：
 
 $$
-f\left( i,j \right) =\max \{ f\left( i-1,j \right) , f\left( i-1,j-v_i \right) +w_i \}
+f\left( i,j \right) =\max \\{ f\left( i-1,j \right) , f\left( i-1,j-v_i \right) +w_i \\}
 $$
 
 时间和空间复杂度均为 $O(N\cdot V)$，时间复杂度不能降低了，但空间复杂度还可以降为一维。是否可以用一维数组`f[j]`只记录一行数据，让 $j$ 值顺序循环，顺序更新`f[j]`呢？答案是不行，因为如果 $j$ 是顺序循环，`f[j - w[i]]`会先于`f[j]`更新，即用新值`f[j - w[i]]`去更新`f[j]`会出错。
@@ -56,7 +56,7 @@ $$
 状态转移方程为：
 
 $$
-f\left( i,j \right) =\max \{ f\left( i,j \right) , f\left( i-1, j-k\cdot v\left[ i \right] \right) +k\cdot w\left[ i \right] \}
+f\left( i,j \right) =\max \\{ f\left( i,j \right) , f\left( i-1, j-k\cdot v\left[ i \right] \right) +k\cdot w\left[ i \right] \\}
 $$
 
 > 例题：[完全背包问题的朴素解法](./complete_knapsack.cpp)
@@ -64,13 +64,13 @@ $$
 为了优化朴素解法，可以观察原递推方程：
 
 $$
-f\left( i,j-v\left[ i \right] \right) =\max \{ f\left( i-1,j-v\left[ i \right] \right) , f\left( j-1,j-2\cdot v\left[ i \right] \right) +w\left[ i \right] ,  f\left( j-1,j-3\cdot v\left[ i \right] \right) +2\cdot w\left[ i \right] , \cdots \}
+f\left( i,j-v\left[ i \right] \right) =\max \\{ f\left( i-1,j-v\left[ i \right] \right) , f\left( j-1,j-2\cdot v\left[ i \right] \right) +w\left[ i \right] ,  f\left( j-1,j-3\cdot v\left[ i \right] \right) +2\cdot w\left[ i \right] , \cdots \\}
 $$
 
 $$
-f\left( i,j \right) =\max \{ f\left( i-1,j \right) , f\left( i-1,j-v\left[ i \right] \right) +w, f\left( j-1,j-2\cdot v\left[ i \right] \right) +2\cdot w\left[ i \right] ,  f\left( j-1,j-3\cdot v\left[ i \right] \right) +3\cdot w\left[ i \right] , \cdots \}
+f\left( i,j \right) =\max \\{ f\left( i-1,j \right) , f\left( i-1,j-v\left[ i \right] \right) +w, f\left( j-1,j-2\cdot v\left[ i \right] \right) +2\cdot w\left[ i \right] ,  f\left( j-1,j-3\cdot v\left[ i \right] \right) +3\cdot w\left[ i \right] , \cdots \\}
 \\
-=\max \{ f\left( i-1,j \right) , f\left( i,j-v\left[ i \right] \right) +w\left[ i \right] \}
+=\max \\{ f\left( i-1,j \right) , f\left( i,j-v\left[ i \right] \right) +w\left[ i \right] \\}
 $$
 
 不用再枚举 $k$ 重循环了。
@@ -95,7 +95,7 @@ $$
 状态转移方程：
 
 $$
-f\left( i,j \right) =\max \{ f\left( i-1,j-v\left[ i \right] \cdot k \right) +w\left[ i \right] \cdot k \} ; k=0,1,2,\cdots ,s\left[ i \right]
+f\left( i,j \right) =\max \\{ f\left( i-1,j-v\left[ i \right] \cdot k \right) +w\left[ i \right] \cdot k \\} ; k=0,1,2,\cdots ,s\left[ i \right]
 $$
 
 > 例题：[多重背包问题的朴素解法](./multiple_knapsack.cpp)
