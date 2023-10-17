@@ -33,7 +33,7 @@ $$
 
 $$
 f\left( i,j \right) =\begin{cases}
-	f\left( i-1,j \right) , j<v\left[ i \right]\\
+	f\left( i-1,j \right) , j < v\left[ i \right]\\
 	\max \left[ f\left( i-1,j \right) , f\left( i-1,j-v\left[ i \right] \right) +w\left[ i \right] \right] , j\geqslant v\left[ i \right]\\
 \end{cases}
 $$
@@ -142,11 +142,17 @@ n=\boldsymbol{v}^T\cdot \boldsymbol{a}; \boldsymbol{a}=\left[ \begin{array}{c}
 \end{cases}
 $$
 
-其中 $\boldsymbol{v}=\left[ \begin{array}{c}
+其中：
+
+$$
+\boldsymbol{v}=\left[ \begin{array}{c}
 	v_1\\
 	\vdots\\
 	v_k\\
-\end{array} \right]$，且 $\boldsymbol{v}$ 的每个分量要么是0要么是1。
+\end{array} \right]
+$$
+
+且 $\boldsymbol{v}$ 的每个分量要么是0要么是1。
 
 现在对于每种物品 $i$，可以将这`s[i]`个物品分散至 $\lfloor \log _2s\left[ i \right] \rfloor +1$ 个箱子中，将多重背包便化成0-1背包，多重背包问题中的一个箱子相当于0-1背包问题中的一件物品。
 
