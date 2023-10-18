@@ -40,9 +40,9 @@ using namespace std;
 
 const int N = 310;
 
-int n;
-int s[N];
-int f[N][N];
+int n;  //石子堆数
+int s[N]; //记录前缀和
+int f[N][N];  //f[l][r]表示把从l到r合并成一堆的最小代价
 
 int main() {
     scanf("%d", &n);
@@ -50,11 +50,11 @@ int main() {
 
     for (int i = 1; i <= n; i ++) s[i] += s[i - 1];
 
-    for (int len = 2; len <= n; len++) {
-        for (int i = 1; i + len - 1 <= n; i++) {
-            int l = i, r = i + len - 1;
+    for (int len = 2; len <= n; len++) {  //阶段：枚举区间长度
+        for (int i = 1; i + len - 1 <= n; i++) {  //状态：枚举区间起点
+            int l = i, r = i + len - 1;  //r为区间终点
             f[l][r] = 1e9;
-            for (int k = l; k <= r; k++) {
+            for (int k = l; k <= r; k++) {  //决策：枚举分割点
                 f[l][r] = min(f[l][r], f[l][k] + f[k + 1][r] + s[r] - s[l - 1]);
             }
         }
