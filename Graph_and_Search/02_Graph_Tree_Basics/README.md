@@ -386,6 +386,52 @@ DFS的时间复杂度为 $O(n+m)$ ( $n$ 表示点数， $m$ 表示边数)，空�
 
 采用树的DFS可以知道每一个子树点的数量。
 
+基本算法流程为：
+
+```
+1. Initialize all vertices as NOT_VISITED
+2. Choose a starting vertex s
+3. Call DFS_Visit(s)
+
+DFS_Visit(u):
+    1. Mark u as VISITED
+    2. Perform any pre-processing or operations on u
+    3. for each vertex v adjacent to u:
+        3.1 if v is NOT_VISITED:
+            3.1.1 DFS_Visit(v)
+    4. Perform any post-processing or operations on u
+
+```
+
+伪代码为：
+
+```SQL
+-- u.color can be WHITE, GRAY, or BLACK, 
+-- indicating whether a vertex is unvisited, currently being visited, or already visited, respectively
+DFS(G):
+    for each vertex u in G.V:
+        u.color = WHITE
+        u.π = NIL
+    time = 0
+    for each vertex u in G.V:
+        if u.color == WHITE:
+            DFS-VISIT(G, u)
+
+DFS-VISIT(G, u):
+    time = time + 1
+    u.d = time
+    u.color = GRAY
+    for each v in G.Adj[u]:
+        if v.color == WHITE:
+            v.π = u
+            DFS-VISIT(G, v)
+    u.color = BLACK
+    time = time + 1
+    u.f = time
+```
+
+代码模板为：
+
 ```C++
 int dfs(int u) {  //从节点u开始进行深度优先搜索
     st[u] = true;  //st[u]表示点u已经被遍历过 
@@ -404,6 +450,52 @@ int dfs(int u) {  //从节点u开始进行深度优先搜索
 **广度优先遍历**（Breadth First Search）每次都尝试访问同一层的节点。 如果同一层都访问完了，再访问下一层。这样做的结果是，BFS算法找到的路径是从起点开始的最短合法路径。
 
 算法过程可以看做是图上火苗传播的过程：最开始只有起点着火了，在每一时刻，有火的节点都向它相邻的所有节点传播火苗。
+
+算法基本流程为：
+
+```
+1. Initialize all vertices as NOT_VISITED
+2. Choose a starting vertex s
+3. Mark s as VISITED
+4. Enqueue s into a queue Q
+5. while Q is not empty:
+    5.1 u = Dequeue(Q)
+    5.2 Perform any operations on u
+    5.3 for each vertex v adjacent to u:
+        5.3.1 if v is NOT_VISITED:
+            5.3.1.1 Mark v as VISITED
+            5.3.1.2 Enqueue v into Q
+```
+
+伪代码为：
+
+```SQL
+-- u.color can be WHITE, GRAY, or BLACK, 
+-- indicating whether a vertex is unvisited, currently being visited, or already visited, respectively
+BFS(G, s):
+    for each vertex u in G.V - {s}:
+        u.color = WHITE
+        u.d = ∞
+        u.π = NIL
+    s.color = GRAY
+    s.d = 0
+    s.π = NIL
+    Q = ∅
+    ENQUEUE(Q, s)
+    while Q ≠ ∅:
+        u = DEQUEUE(Q)
+        for each v in G.Adj[u]:
+            if v.color == WHITE:
+                v.color = GRAY
+                v.d = u.d + 1
+                v.π = u
+                ENQUEUE(Q, v)
+        u.color = BLACK
+```
+
+算法时间复杂度为 $O(n+m)$
+
+代码模板为：
 
 ```C++
 void bfs(int u) {  //从节点u开始进行广度优先搜索
