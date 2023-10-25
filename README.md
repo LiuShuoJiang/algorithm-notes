@@ -37,3 +37,5 @@ keep updating...
 - [贪心算法](./Greedy_Methods/)
   - [区间问题](./Greedy_Methods/01_Interval_Problems/)
   - [Huffman树](./Greedy_Methods/02_Huffman_Coding/)
+- [数学知识](./Math/)
+  - [质数](./Math/01_Prime_Numbers/)
