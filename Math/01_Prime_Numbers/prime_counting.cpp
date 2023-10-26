@@ -24,8 +24,8 @@ using namespace std;
 
 const int N = 1000010;
 
-int primes[N], cnt;
-bool st[N];
+int primes[N], cnt;  //记录质数和质数个数
+bool st[N];  //真：表示合数
 
 void get_prime(int n) {
     for (int i = 2; i <= n; i++) {
