@@ -44,10 +44,10 @@ void divide(int x) {
         if (x % i == 0) {
             int s = 0;
             while (x % i == 0) x /= i, s++;
-            cout << i << ' ' << s <<  endl;
+            cout << i << ' ' << s << endl;
         }
     }
-    if (x > 1) cout << x << ' ' << 1 <<  endl;
+    if (x > 1) cout << x << ' ' << 1 << endl;
     cout << endl;
 }
 ```
@@ -58,14 +58,14 @@ void divide(int x) {
 
 暴力做法的思想是从2到 $n$ 看每一个数，把2的所有倍数筛掉，再把3的所有倍数筛掉，再把5的所有倍数筛掉，...，这样剩余的所有数都是质数。时间复杂度为 $O\left( \frac{n}{2}+\frac{n}{3}+\cdots +\frac{n}{n} \right) \approx O\left( n\ln n \right) \approx O\left( n\log n \right)$
 
-**埃氏筛法**：
+**埃氏筛法**(Sieve of Eratosthenes)：
 
 从小到大枚举每个数：
 
 - 如果当前数没被划掉，则必定是质数，记录该质数
   - 枚举当前质数的倍数，必定是合数，划掉合数
 
-性质：从1到 $n$ 中有约 $\frac{n}{\ln n}$ 个质数。
+性质([Prime Number Theorem](https://en.wikipedia.org/wiki/Prime_number_theorem))：从1到 $n$ 中有约 $\frac{n}{\ln n}$ 个质数。
 
 采用埃氏筛法优化后，时间复杂度约为 $O(n)$，真实时间复杂度为 $O(n\log \log n)$，因为一个合数可能被筛掉不止一次
 
