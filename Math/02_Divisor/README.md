@@ -8,13 +8,13 @@
 
 ## 约数个数和约数和
 
-**算术基本定理**：对于$\forall A\in \mathbb{N} , A>1$，都 
+**算术基本定理**：对于 $\forall A\in \mathbb{N} , A>1$ ，都
 
 $$
 \exists \prod_{i=1}^n{{p_i}^{\alpha _i}}=A
 $$
 
-其中 $p_1<p_2<\cdots <p_n$，且 $p_i$ 为质数， ${\alpha}_i\in \mathbb{Z} ^+$。这种表示方法存在且唯一。
+其中 $p_1 < p_2 < \cdots < p_n$ ，且 $p_i$ 为质数， ${\alpha}_i\in \mathbb{Z} ^+$。这种表示方法存在且唯一。
 
 > 例题：[约数个数](./num_of_divisors.cpp)
 
