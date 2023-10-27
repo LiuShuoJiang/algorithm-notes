@@ -4,6 +4,8 @@ All-in-one repository for useful algorithms in C++ (currently in Chinese only)
 
 keep updating...
 
+本仓库记录一些常见的数据结构与算法思路、模板及示例代码，内容源于个人学习的总结与实践。
+
 - [基础算法](./Algorithm_Basics/)
   - [排序](./Algorithm_Basics/01_Sorting/)
   - [二分查找](./Algorithm_Basics/02_Binary_Search/)
