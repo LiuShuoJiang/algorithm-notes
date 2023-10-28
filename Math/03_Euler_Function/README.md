@@ -19,8 +19,8 @@ $$
 证明：要求 $1\sim A$ 中和 $A$ 互质的数的个数，需要进行以下步骤：
 
 1. 从 $1\sim A$ 中去掉 $p_1,p_2,\cdots ,p_k$ 的所有倍数，也就是 $A-\frac{A}{p_1}-\frac{A}{p_2}-\cdots -\frac{A}{p_n}$
-2. 根据容斥原理，还需要加上所有 $p_i\cdot p_j$ 的倍数，也就是 $A-\sum_{i=1}^n{p_i}+\sum_{1\leqslant i<j\leqslant n}{p_i\cdot p_j}$
-3. 根据容斥原理，还需要减去所有 $p_i\cdot p_j\cdot p_k$ 的倍数，也就是 $A-\sum_{i=1}^n{p_i}+\sum_{1\leqslant i<j\leqslant n}{p_i\cdot p_j}-\sum_{1\leqslant i<j<k\leqslant n}{p_i\cdot p_j\cdot p_k}$
+2. 根据容斥原理，还需要加上所有 $p_i\cdot p_j$ 的倍数，也就是 $A-\sum_{i=1}^n{p_i}+\sum_{1\leqslant i < j\leqslant n}{p_i\cdot p_j}$
+3. 根据容斥原理，还需要减去所有 $p_i\cdot p_j\cdot p_k$ 的倍数，也就是 $A-\sum_{i=1}^n{p_i}+\sum_{1\leqslant i < j\leqslant n}{p_i\cdot p_j}-\sum_{1\leqslant i < j < k\leqslant n}{p_i\cdot p_j\cdot p_k}$
 4. 以此类推......
 5. 最终得到的式子即为原公式
 
