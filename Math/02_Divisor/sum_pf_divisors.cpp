@@ -52,7 +52,7 @@ int main() {
         if (x > 1) primes[x]++;
     }
 
-    LL res = 1;
+    LL res = 1ll;
     for (auto prime : primes) {
         int p = prime.first, a = prime.second;
         LL t = 1;

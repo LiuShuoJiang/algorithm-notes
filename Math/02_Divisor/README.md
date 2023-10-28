@@ -6,7 +6,23 @@
 
 时间复杂度为 $O(\sqrt{n})$
 
-## 约数个数和约数和
+代码模板：
+
+```C++
+vector<int> get_divisors(int x) {
+    vector<int> res;
+    for (int i = 1; i <= x / i; i++) {
+        if (x % i == 0) {
+            res.push_back(i);
+            if (i != x / i) res.push_back(x / i);
+        }
+    }
+    sort(res.begin(), res.end());
+    return res;
+}
+```
+
+## 约数个数与约数和
 
 **算术基本定理**：对于 $\forall A\in \mathbb{N} , A>1$ ，都
 
@@ -38,4 +54,26 @@ $$
 =\prod_{i=1}^n{\left( \sum_{j=0}^{\alpha _i}{{p_i}^j} \right)}
 $$
 
+速记：
 
+```
+如果 N = p1^c1 * p2^c2 * ... *pk^ck
+约数个数： (c1 + 1) * (c2 + 1) * ... * (ck + 1)
+约数之和： (p1^0 + p1^1 + ... + p1^c1) * ... * (pk^0 + pk^1 + ... + pk^ck)
+```
+
+## 最大公约数
+
+> 例题：[最大公约数](./greatest_common_divisor.cpp)
+
+欧几里得算法(**辗转相除法**)：两个整数的最大公约数等于其中较小的数和两数相除余数的最大公约数，即 $\mathrm{gcd}\left( a, b \right) =\mathrm{gcd}\left( b, a\left( \mathrm{mod} b \right) \right)$
+
+欧几里得算法时间复杂度为 $O(\log n)$
+
+代码模板：
+
+```C++
+int gcd(int a, int b) {
+    return b ? gcd(b, a % b) : a;
+}
+```
