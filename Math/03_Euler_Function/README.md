@@ -33,8 +33,9 @@ $$
 结论：欧拉函数为积性函数，即若 $m,n$ 互质，则 $\varphi \left( m\cdot n \right) =\varphi \left( m \right) \cdot \varphi \left( n \right)$
 
 - 一个质数 $p$ 的欧拉函数为 $\varphi (p)=p-1$
-- 欧拉函数与质因子次数无关。当 $i\,\,\mathrm{mod}\, p_j=0$时，有 $\varphi \left( p_j\cdot i \right) =p_j\cdot \varphi \left( i \right)$
-- 当 $i\,\,\mathrm{mod}\, p_j\ne 0$时，根据线性筛法的性质，有 $p_j$ 必为 $i\cdot p_j$ 的最小质因子，则 $\varphi \left( p_j\cdot i \right) =p_j\cdot \varphi \left( i \right) \cdot \left( 1-\frac{1}{p_j} \right) =\varphi \left( i \right) \cdot \left( p_j-1 \right)$
+- 欧拉函数与质因子次数无关。当 $i\ \mathrm{mod}\ p_j=0$时，有 $\varphi \left( p_j\cdot i \right) =p_j\cdot \varphi \left( i \right)$
+- 当 $i\ \mathrm{mod}\ p_j\ne 0$时，根据线性筛法的性质，有 $p_j$ 必为 $i\cdot p_j$ 的最小质因子，则 $\varphi \left( p_j\cdot i \right) =p_j\cdot \varphi \left( i \right) \cdot \left( 1-\frac{1}{p_j} \right) =\varphi \left( i \right) \cdot \left( p_j-1 \right)$
 
-**欧拉定理**：若正整数 $n,a$ 互质，则 $a^{\varphi \left( n \right)}\equiv 1  \left( \mathrm{mod}\, n \right)$
+**欧拉定理**：若正整数 $n,a$ 互质，则 $a^{\varphi \left( n \right)}\equiv 1  \left( \mathrm{mod}\ n \right)$
 
+**费马小定理**：对于整数 $a$，质数 $p$，有 $a^p\equiv a\ \left( \mathrm{mod}\ p \right)$；进一步，若 $a$ 不是 $p$ 的倍数，则有 $a^{p-1}\equiv 1\ \left( \mathrm{mod}\ p \right)$
