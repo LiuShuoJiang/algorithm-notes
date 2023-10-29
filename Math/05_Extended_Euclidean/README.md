@@ -12,12 +12,12 @@
 
 当 $b=0$ 时， $ax+by=a$，故 $x=1,\ y=0$
 
-当 $b\ne 0$ 时，因为 $\mathrm{gcd}\left( a,b \right) =\mathrm{gcd}\left( b,a\%b \right)$，则 $bx\prime+\left( a\%b \right) y\prime=\mathrm{gcd}\left( b,a\%b \right)$，可知：
+当 $b\ne 0$ 时，因为 $\mathrm{gcd}(a,b) =\mathrm{gcd}(b,a\%b)$，则 $bx\prime+(a\%b) y\prime=\mathrm{gcd}(b,a\%b)$，可知：
 
 $$
-b\cdot x\prime+\left( a-\lfloor \frac{a}{b} \rfloor \cdot b \right) \cdot y\prime=\mathrm{gcd}\left( b,a\%b \right) ;
+b\cdot x\prime+(a-\lfloor \frac{a}{b} \rfloor \cdot b) \cdot y\prime=\mathrm{gcd}(b,a\%b) ;
 \\
-\Rightarrow a\cdot y\prime+b\cdot \left( x\prime-\lfloor \frac{a}{b} \rfloor \cdot y\prime \right) =\mathrm{gcd}\left( b,a\%b \right) =\mathrm{gcd}\left( a,b \right) 
+\Rightarrow a\cdot y\prime+b\cdot( x\prime-\lfloor \frac{a}{b} \rfloor \cdot y\prime) =\mathrm{gcd}( b,a\%b) =\mathrm{gcd}( a,b)
 $$
 
 故 $x=y\prime, y=x\prime-\lfloor \frac{a}{b} \rfloor \cdot y\prime$，可以采用递归算法，先求出下一层的 $x\prime$ 和 $y\prime$，再利用上述公式进行回代。
