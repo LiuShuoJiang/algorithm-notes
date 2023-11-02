@@ -54,6 +54,8 @@ $$
 =\prod_{i=1}^n{\left( \sum_{j=0}^{\alpha _i}{{p_i}^j} \right)}
 $$
 
+技巧：如何求 $S\left( n \right) =1+x+x^2+\cdots +x^n$ ？事实上，由于 $S\left( n \right) =1+x\cdot \left( 1+x+\cdots +x^{n-1} \right) =1+S\left( n-1 \right) \cdot x$，边界为 $S(0)=1$。所以可以令 $t=1$，乘以 $x$ 再加上1得到 $S(1)$，再乘以 $x$ 并加上1得到 $S(2)$，执行n次循环得到 $S(n)$
+
 速记：
 
 ```

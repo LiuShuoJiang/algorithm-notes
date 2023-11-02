@@ -54,6 +54,7 @@ int main() {
 
     LL res = 1;
     for (auto prime : primes)
+        //res = (x1 + 1)(x2 + 1)(x3 + 1)…(xk + 1)
         res = res * (prime.second + 1) % mod;
     
     cout << res << endl;

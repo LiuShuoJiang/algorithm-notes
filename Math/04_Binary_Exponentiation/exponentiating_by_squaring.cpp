@@ -33,7 +33,7 @@ typedef long long LL;
 
 // 返回a^k (mod p)
 int qmi(int a, int k, int p) {
-    int res = 1;
+    int res = 1 % p;
     while (k) {  //对k进行二进制化，从低位到高位
         //如果k的二进制表示的第0位为1，则乘上当前的a
         if (k & 1) res = (LL) res * a % p;

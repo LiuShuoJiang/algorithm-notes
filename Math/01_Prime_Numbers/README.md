@@ -110,7 +110,7 @@ void get_primes(int n) {
 代码模板：
 
 ```C++
-int primes[N], cnt;  //primes[]存储所有素数
+int primes[N], cnt;  //primes[i]存储到i为止的所有素数
 bool st[N];  //st[x]存储x是否被筛掉
 
 void get_primes(int n) {

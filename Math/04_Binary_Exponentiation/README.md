@@ -20,11 +20,46 @@ $$
 
 以上预处理结果之间满足递推关系： $a^{2^{t+1}}=\left( a^{2^t} \right) ^2$
 
-为了使用预处理结果的乘积，可以将 $k$ 拆成二进制：若 $k=n_s2^s+n_{s-1}2^{s-1}+n_{s-2}2^{s-2}+\cdots +n_12^1+n_02^0$，其中 $n_i\in \left\{ 0,1 \right\}$，则：
+为了使用预处理结果的乘积，可以将 $k$ **拆成二进制**：若 $k=n_s2^s+n_{s-1}2^{s-1}+n_{s-2}2^{s-2}+\cdots +n_12^1+n_02^0$，其中 $n_i\in \left\{ 0,1 \right\}$，则：
 
 $$
-a^k=a^{n_s2^s+n_{s-1}2^{s-1}+n_{s-2}2^{s-2}+\cdots +n_12^1+n_02^0}=a^{n_02^0}\times a^{n_12^1}\times \cdots \times a^{n_s2^s}
+a^k=a^{n_s2^s+n_{s-1}2^{s-1}+n_{s-2}2^{s-2}+\cdots +n_12^1+n_02^0}
 $$
+
+$$
+=a^{n_02^0}\times a^{n_12^1}\times \cdots \times a^{n_s2^s}
+$$
+
+代码模板：
+
+```C++
+// 求 m^k (mod p)，时间复杂度 O(log(k))
+int fast_power(int m, int k, int p) {
+	int res = 1 % p, t = m;
+	while (k) {
+		if (k & 1) res = res * t % p;
+		t = t * t % p;
+		k >>= 1;
+	}
+	return res;
+}
+```
+
+防止`int`溢出的代码模板：
+
+```C++
+// 求 m^k (mod p)，时间复杂度 O(log(k))
+LL fast_power(int m, int k, int p) {
+	//与LL res = 1;相比，这样写考虑到了p = 1的情况(如p = 1, k = 0)
+	LL res = 1 % p;
+	while (k) {
+		if (k & 1) res = res * m % p;
+		m = m * (LL)m % p;
+		k >>= 1;
+	}
+	return res;
+}
+```
 
 ## 快速幂的应用：求质数模的逆元
 
@@ -33,7 +68,3 @@ $$
 > 例题：[快速幂求逆元](./multiplicative_inverse.cpp)
 
 $b$ 存在乘法逆元的充要条件是 $b$ 与模数 $m$ 互质；逆元满足 $b\cdot b^{-1}\equiv 1\ \left( \mathrm{mod}\ m \right)$；当模数 $m$ 为质数时，根据费马小定理， $b^{m-2}$ 即为 $b$ 的乘法逆元。
-
-
-
-
