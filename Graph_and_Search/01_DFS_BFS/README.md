@@ -49,3 +49,5 @@ while (queue非空) {
     拓展t
 }
 ```
+
+> 例题：[八数码](./eight_numbers.cpp)
