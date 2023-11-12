@@ -16,8 +16,8 @@ Return `true` if `n` is a happy number, and `false` if not.
 
 Example 1:
 
-Input: n = 19
-Output: true
+- Input: `n = 19`
+- Output: `true`
 
 Explanation:
 
@@ -30,12 +30,10 @@ Explanation:
 
 Example 2:
 
-Input: `n = 2`
-Output: `false`
+- Input: `n = 2`
+- Output: `false`
 
-Constraints:
-
-`1 <= n <= 2^31 - 1`
+Constraints: `1 <= n <= 2^31 - 1`
 
 ## Solution
 

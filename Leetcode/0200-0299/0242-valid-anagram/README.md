@@ -10,13 +10,13 @@ An Anagram is a word or phrase formed by rearranging the letters of a different 
 
 Example 1:
 
-Input: `s = "anagram"`, `t = "nagaram"`
-Output: `true`
+- Input: `s = "anagram"`, `t = "nagaram"`
+- Output: `true`
 
 Example 2:
 
-Input: `s = "rat"`, `t = "car"`
-Output: `false`
+- Input: `s = "rat"`, `t = "car"`
+- Output: `false`
 
 Constraints:
 
@@ -25,7 +25,7 @@ Constraints:
 
 ## Solution
 
-Hash Map:
+### Hash Map
 
 - Assuming that the string contains only lowercase letters, use an array of length 26 as a hash table to keep track of the number of times a letter appears.
 - For `s`, add the number of letters to the hash table.
@@ -51,7 +51,7 @@ public:
 };
 ```
 
-Hash Map (Simpler):
+### Hash Map (Simpler)
 
 ```C++
 class Solution {
