@@ -4,7 +4,7 @@
 
 ## Description
 
-Given an array of positive integers `nums` and a positive integer `target`, return the minimal length of a subarray (A ***subarray*** is a contiguous non-empty sequence of elements within an array) whose sum is greater than or equal to `target`. If there is no such subarray, return 0 instead.
+Given an array of ***positive*** integers `nums` and a ***positive*** integer `target`, return the minimal length of a subarray (A ***subarray*** is a contiguous non-empty sequence of elements within an array) whose sum is greater than or equal to `target`. If there is no such subarray, return 0 instead.
 
 Example 1:
 
@@ -31,7 +31,9 @@ Constraints:
 
 ## Solution
 
-### Sliding Window
+### Sliding Window (Double Pointer)
+
+`left` and `right` represent the start and end of the sliding window, respectively. We move right forward to expand the window and add to the `sum`. When the `sum` reaches or exceeds the `target`, we update the minimum length and shrink the window from the left by incrementing `left` and subtracting that element from the sum. This process repeats until `right` has traversed the entire array.
 
 ```C++
 class Solution {
@@ -41,11 +43,16 @@ public:
         int left = 0, sum = 0;
         for (int right = 0; right < nums.size(); right++) {
             sum += nums[right];
+            // Check if the current window sum is at least the target
             while (sum >= target) {
                 minLength = min(minLength, right - left + 1);
+                // Shrink the window from the left, subtracting that element from the sum
                 sum -= nums[left++];
             }
         }
+
+        // If minLength is still INT_MAX, no valid subarray was found, return 0
+        // Otherwise, return the minimum length found
         return minLength == INT_MAX ? 0 : minLength;
     }
 };
