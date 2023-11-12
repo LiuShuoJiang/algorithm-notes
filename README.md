@@ -1,8 +1,8 @@
 # Algorithm Notes
 
-All-in-one repository for useful algorithms in C++ (currently in Chinese only)
+An all-in-one repository for useful algorithms in C++ (currently in Chinese only) ✒️
 
-keep updating...
+💡💡💡 Keep on updating...
 
 本仓库记录一些常见的数据结构与算法思路、模板及示例代码，内容源于个人学习的总结与实践。
 
@@ -41,3 +41,13 @@ keep updating...
   - [Huffman树](./Greedy_Methods/02_Huffman_Coding/)
 - [数学知识](./Math/)
   - [质数](./Math/01_Prime_Numbers/)
+  - [因数](./Math/02_Divisor/)
+  - [欧拉函数](./Math/03_Euler_Function/)
+  - [快速幂](./Math/04_Binary_Exponentiation/)
+  - [扩展欧几里得算法](./Math/05_Extended_Euclidean/)
+  - [中国剩余定理](./Math/06_Chinese_Remainder_Theorem/)
+  - [高斯消元法](./Math/07_Gaussian_Elimination/)
+  - [组合数](./Math/08_Combinatorial_Number/)
+- [Leetcode题解](./Leetcode/)
+
+This repository is licensed under [CC BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
