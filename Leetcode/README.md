@@ -12,6 +12,8 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [26: Remove Duplicates from Sorted Array](./0001-0099/0026-remove-duplicates-from-sorted-array/README.md)
 - [977: Squares of a Sorted Array](./0900-0999/0977-squares-of-a-sorted-array/README.md)
 - [209: Minimum Size Subarray Sum](./0200-0299/0209-minimum-size-subarray-sum/README.md)
+- [54: Spiral Matrix](./0001-0099/0054-spiral-matrix/README.md)
+- [59: Spiral Matrix II](./0001-0099/0059-spiral-matrix-ii/README.md)
 
 ## Hash Map
 
@@ -23,5 +25,12 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [454: 4 Sum II](./0400-0499/0454-4sum-ii/README.md)
 - [383: Ransom Note](./0300-0399/0383-ransom-note/README.md)
 - [15: 3 Sum](./0001-0099/0015-3sum/README.md)
+- [18: 4 Sum](./0001-0099/0018-4sum/README.md)
 
+## Linked List
 
+- [203: Remove Linked List Elements](./0200-0299/0203-remove-linked-list-elements/README.md)
+
+## String
+
+- [344: Reverse String](./0300-0399/0344-reverse-string/README.md)
