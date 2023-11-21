@@ -30,6 +30,12 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 ## Linked List
 
 - [203: Remove Linked List Elements](./0200-0299/0203-remove-linked-list-elements/README.md)
+- [707: Design Linked List](./0700-0799/0707-design-linked-list/README.md)
+- [206: Reverse Linked List](./0200-0299/0206-reverse-linked-list/README.md)
+- [24: Swap Node in Pairs](./0001-0099/0024-swap-nodes-in-pairs/README.md)
+- [19: Remove Nth Node From End of List](./0001-0099/0019-remove-nth-node-from-end-of-list/README.md)
+- [160: Intersection of Two Linked Lists](./0100-0199/0160-intersection-of-two-linked-lists/README.md)
+- [142: Linked List Cycle II](./0100-0199/0142-linked-list-cycle-ii/README.md)
 
 ## String
 
