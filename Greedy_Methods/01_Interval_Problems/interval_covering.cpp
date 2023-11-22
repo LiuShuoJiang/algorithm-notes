@@ -59,12 +59,14 @@ int main() {
     int res = 0;
     bool success = false;
     for (int i = 0; i < n; i++) {
+        // 双指针
         int j = i, r = -2e9;
+        // 选择所有能覆盖目标左侧端点st的右区间的最大值
         while (j < n && range[j].l <= st) {
             r = max(r, range[j].r);
             j++;
         }
-        if (r < st) {
+        if (r < st) {  // 不能覆盖
             res = -1;
             break;
         }
