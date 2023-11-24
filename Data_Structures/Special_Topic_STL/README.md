@@ -5,6 +5,9 @@
   - [向量 (vector)](#向量-vector)
   - [对 (pair)](#对-pair)
   - [字符串 (string)](#字符串-string)
+  - [链表 (list)](#链表-list)
+    - [单向链表 (forward\_list)](#单向链表-forward_list)
+    - [双向链表 (list)](#双向链表-list)
   - [队列](#队列)
     - [普通队列 (queue)](#普通队列-queue)
     - [优先队列 (priority\_queue)](#优先队列-priority_queue)
@@ -102,6 +105,33 @@ C++的 ***Standard Template Library(STL)*** 包含以下三个部分：
 - `substr()`: 
 - `c_str()`: 
 - `length()`: 作用同`size()`，都是返回字符串长度
+
+## 链表 (list)
+
+STL链表种类：
+
+- `forward_list`: 单向链表
+- `list`: 双向链表
+
+### 单向链表 (forward_list)
+
+`std::forward_list`是一个容器，支持从容器中的任何位置快速插入和移除元素。不支持快速随机存取。它以单链表的形式实现。与`std::list`相比，当不需要双向迭代时，该容器能提供更节省空间的存储空间。
+
+在列表或多个列表中添加、删除和移动元素不会使当前引用列表中其他元素的迭代器失效。但是，当相应的元素从列表中删除(通过`erase_after`)时，指向该元素的迭代器或引用就会失效。
+
+支持操作：`operator =`, `assign`, `front`, `empty`, `max_size`, `clear`, `insert_after`, `emplace_after`, `reverse`, `sort`, `merge`, `splice_after`, `unique`, `remove`, `remove_if`, `resize`等。
+
+> 测试代码：[forward_list](./list_usage.cpp)
+
+### 双向链表 (list)
+
+`std::list`是一种容器，支持从容器中的任何位置定时插入和移除元素。不支持快速随机存取。它通常以双链表的形式实现。与`std::forward_list`相比，该容器提供双向迭代功能，但空间效率较低。
+
+在列表或多个列表中添加、删除和移动元素不会使迭代器或引用失效。只有删除相应元素时，迭代器才会失效。
+
+支持操作：`operator =`, `assign`, `front`, `back`(`forward_list`无此操作), `empty`, `size`(`forward_list`无此操作), `max_size`, `clear`, `insert`, `emplace`, `push_back`(`forward_list`无此操作), `pop_back`(`forward_list`无此操作), `push_front`(`forward_list`无此操作), `pop_front`(`forward_list`无此操作), `reverse`, `sort`, `merge`, `splice`, `unique`, `remove`, `remove_if`, `resize`等。
+
+> 测试代码：[list](./list_usage_2.cpp)
 
 ## 队列
 
