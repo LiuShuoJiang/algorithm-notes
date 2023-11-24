@@ -1,5 +1,22 @@
 # Reverse Words in a String
 
+- [Reverse Words in a String](#reverse-words-in-a-string)
+  - [Description](#description)
+  - [Solution](#solution)
+    - [Original Solution Using Library Functions](#original-solution-using-library-functions)
+      - [Code](#code)
+      - [Detailed complexity analysis](#detailed-complexity-analysis)
+        - [Overall Time Complexity Analysis](#overall-time-complexity-analysis)
+        - [Overall Space Complexity Analysis](#overall-space-complexity-analysis)
+        - [Summarization: Complexity of C++ Standard Library Functions](#summarization-complexity-of-c-standard-library-functions)
+    - [Solution Implementing the Function Ourselves](#solution-implementing-the-function-ourselves)
+      - [Way 1](#way-1)
+      - [Way 2 (Recommended)](#way-2-recommended)
+    - [Python Solution](#python-solution)
+      - [Function Breakdown](#function-breakdown)
+      - [Time Complexity Analysis](#time-complexity-analysis)
+      - [Space Complexity Analysis](#space-complexity-analysis)
+
 [Link](https://leetcode.com/problems/reverse-words-in-a-string/description/)
 
 ## Description
@@ -166,5 +183,138 @@ The overall time complexity of the implementation is dominated by the string spl
 
 ### Solution Implementing the Function Ourselves
 
+#### Way 1
 
+The entire string is reversed first, and then each word is reversed back internally.
 
+```C++
+class Solution {
+public:
+    // Reversing strings; interval: left-closed right-closed []
+    void myReverse(string &s, int start, int end) {
+        for (int i = start, j = end; i < j; i++, j--)
+            swap(s[i], s[j]);
+    }
+
+    // Remove all spaces and add spaces between neighboring words
+    // using fast and slow pointers
+    void removeExtraSpace(string &s) {
+        int slow = 0;
+        for (int i = 0; i < s.size(); i++) {
+            // Handle non-spaces as they are encountered, i.e., remove all spaces
+            if (s[i] != ' ') {
+                // Manually control spaces by adding spaces between words;
+                // slow ! = 0 means that it is not the first word 
+                // and a space needs to be added before the word
+                if (slow != 0) s[slow++] = ' ';
+                // Fill in the word 
+                // and a space indicates the end of the word
+                while (i < s.size() && s[i] != ' ') s[slow++] = s[i++];
+            }
+        }
+        // size of slow is the size of the string after removing the extra spaces
+        s.resize(slow); 
+    }
+
+    string reverseWords(string s) {
+        // Remove extra spaces, 
+        // make sure there is only one space between words 
+        // and no space at the beginning and end of the string.
+        removeExtraSpace(s);
+        myReverse(s, 0, s.size() - 1);
+        // RemoveExtraSpace guarantees that the first word 
+        // must start with a 0 subscript.
+        int start = 0;
+        // It is i <= s.size() here!
+        for (int i = 0; i <= s.size(); i++) {
+            // Reaching a space or the end of a string indicates the end of a word;
+            // Perform a reversal
+            if (i == s.size() || s[i] == ' ') {
+                // Reversal. Note that it's a left-closed right-closed [] flip
+                myReverse(s, start, i - 1);
+                // Update the start subscript of the next word start
+                start = i + 1;
+            }
+        }
+        return s;
+    }
+};
+```
+
+- Time complexity: $O(n)$;
+- Space complexity: $O(1)$ for C++.
+
+#### Way 2 (Recommended)
+
+Flip each word internally first, then reverse the entire string back.
+
+```C++
+class Solution {
+public:
+    string reverseWords(string s) {
+        int slow = 0; // Initialize a 'slow' pointer
+
+        for (int i = 0; i < s.size(); i++) {
+            if (s[i] == ' ') continue; // Skip spaces
+
+            // Find the start and end of the next word
+            int j = i, t = slow;
+            while (j < s.size() && s[j] != ' ') s[t++] = s[j++];
+            // Reverse the word in-place
+            reverse(s.begin() + slow, s.begin() + t);
+
+            // Add a space after the word and update pointers
+            s[t++] = ' ';
+            slow = t;
+            i = j; // Jump to the end of the word
+        }
+
+        // Remove the last space if the string is not empty
+        if (slow) slow--;
+        // Erase the trailing spaces
+        s.erase(s.begin() + slow, s.end());
+        // Reverse the entire string to get words in reverse order
+        reverse(s.begin(), s.end());
+
+        return s;
+    }
+};
+```
+
+### Python Solution
+
+```Python
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        return ' '.join(s.strip().split()[::-1])
+```
+
+#### Function Breakdown
+
+1. **`s.strip()`**:
+   - `strip()` is a string method in Python that removes any leading and trailing whitespace (including spaces, newlines, and tabs) from the string `s`.
+   - For instance, `"  hello world  ".strip()` would result in `"hello world"`.
+2. **`split()`**:
+   - `split()` is a method that divides a string into a list of substrings, separated by the specified separator. By default, it splits based on any whitespace and removes it.
+   - For example, `"hello   world".split()` results in `["hello", "world"]`.
+3. **`[::-1]`**:
+   - This is a slicing operation that reverses the list. `[::-1]` means start at the end of the list and end at position 0, move with the step -1 (one step backward).
+   - For a list `["hello", "world"]`, the result of `[::-1]` would be `["world", "hello"]`.
+4. **`' '.join(...)`**:
+   - `join()` is a string method used to join elements of an iterable (like a list) into a single string, with the specified string as a separator. Here, it uses a space `' '` as the separator.
+   - For example, `' '.join(["world", "hello"])` would result in `"world hello"`.
+
+Putting it all together, this one-liner first removes leading and trailing spaces from the input string, splits the string into words, reverses the list of words, and then joins them back into a single string with spaces in between.
+
+#### Time Complexity Analysis
+
+1. **Strip Operation:** $O(N)$, where $N$ is the length of the string. This is because it potentially needs to check each character at both ends of the string.
+2. **Split Operation:** $O(N)$, as it goes through the entire string to split it into words.
+3. **List Reversal:** $O(W)$, where $W$ is the number of words in the string. This is typically considered a linear operation with respect to the number of elements in the list.
+4. **Join Operation:** $O(N)$, as it has to combine all the words back into a single string.
+
+The overall time complexity of the function is $O(N)$, as each character in the string is processed a constant number of times.
+
+#### Space Complexity Analysis
+
+**Intermediate Lists and Strings:** The space complexity is mainly due to the storage of the split words and the final string. This would be $O(N)$, as in the worst case, the number of words and the total length of the words (including the spaces in the final joined string) can be proportional to the length of the original string.
