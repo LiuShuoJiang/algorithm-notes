@@ -35,6 +35,7 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [24: Swap Node in Pairs](./0001-0099/0024-swap-nodes-in-pairs/README.md)
 - [19: Remove Nth Node From End of List](./0001-0099/0019-remove-nth-node-from-end-of-list/README.md)
 - [160: Intersection of Two Linked Lists](./0100-0199/0160-intersection-of-two-linked-lists/README.md)
+- [141: Linked List Cycle](./0100-0199/0141-linked-list-cycle/README.md)
 - [142: Linked List Cycle II](./0100-0199/0142-linked-list-cycle-ii/README.md)
 
 ## String
