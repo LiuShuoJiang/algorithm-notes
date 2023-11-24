@@ -1,0 +1,34 @@
+# Project Information
+site_name: Algorithm Notes
+site_url: https://liushuojiang.github.io/algorithm-notes/
+site_author: Shuojiang Liu
+site_description: >-
+  My Personal Algorithm Notes using C++ Programming Language
+
+# Repository
+repo_name: LiuShuoJiang/algorithm-notes
+repo_url: https://github.com/LiuShuoJiang/algorithm-notes
+
+# Copyright
+copyright: Copyright &copy; 2023 Shuojiang Liu
+
+docs_dir: ./
+
+theme:
+  name: material
+  language: zh
+
+plugins: 
+  - search
+  - same-dir
+  - i18n:
+      docs_structure: suffix
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: zh
+          name: Chinese
+          build: true
+
