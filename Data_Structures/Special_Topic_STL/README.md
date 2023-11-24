@@ -54,6 +54,16 @@ C++的 ***Standard Template Library(STL)*** 包含以下三个部分：
 
 `vector`( ***Sequence Container*** )是 ***变长数组***，基本思想是倍增，有时被称为Dynamic Array或Array List。`vector`可以看作集合了“链表+数组”优点的容器。
 
+`std::vector`是一种序列容器，可封装动态大小的数组。元素是连续存储的，这意味着不仅可以通过迭代器访问元素，还可以使用指向元素的常规指针的偏移量访问元素。这意味着指向`vector`元素的指针可以传递给任何期望指向数组元素指针的函数。
+
+`vector`的存储会自动处理，并根据需要进行扩展。`vector`通常比静态数组占用更多空间，因为会分配更多内存来处理未来的增长。这样，每次插入一个元素时，`vector`都不需要重新分配，而只需在额外内存用完时重新分配。使用`capacity()`函数可以查询分配的内存总量。多余的内存可以通过调用`shrink_too_fit()`返回给系统。就性能而言，重新分配通常是代价高昂的操作。如果事先知道元素的数量，可以使用`reserve()`函数来消除重新分配。
+
+`vector`常见操作的开销如下：
+
+- 随机存取：常量 $O(1)$
+- 在末尾插入或移除元素：摊销时间为常数(Constant Amortized Time) $O(1)$
+- 插入或移除元素：与向量末端的距离成线性关系 $O(n)$
+
 `vector`访问元素的方式：
 
 - `at()`:
@@ -90,12 +100,23 @@ C++的 ***Standard Template Library(STL)*** 包含以下三个部分：
 
 ## 对 (pair)
 
-`pair`: 定义一个二元组，前后两个变量类型可以不一样；类似于有两个变量且实现了一些函数的结构体
+```C++
+template<
+    class T1,
+    class T2
+> struct pair;
+```
+
+`std::pair`是一个类模板，它提供了一种将两个异构对象存储为一个单元的方法。一个`pair`是包含两个元素的`std::tuple`的一种特殊情况。
+
+`pair`: 定义一个二元组，前后两个变量类型可以不一样；类似于有两个变量且实现了一些函数的结构体。
 
 - `first`: 第一个元素
 - `second`: 第二个元素
 
-`pair`支持比较运算，以`first`为第一个关键字，`second`为第二个关键字(字典顺序)
+`pair`支持比较运算，以`first`为第一个关键字，`second`为第二个关键字(字典顺序)。
+
+> 测试代码：[pair](./pair_usage.cpp)
 
 ## 字符串 (string)
 
@@ -137,7 +158,18 @@ STL链表种类：
 
 ### 普通队列 (queue)
 
-`queue`: 队列，`push()`, `front()`, `back()`, `pop()`
+```C++
+template<
+    class T,
+    class Container = std::deque<T>
+> class queue;
+```
+
+`std::queue`类是一个容器适配器(container adaptor)，它为程序员提供了队列的功能，特别是先进先出(FIFO)数据结构。该类模板充当底层容器的封装器，只提供一组特定的函数。`queue`将元素推到底层容器的后面，然后从前面取出。
+
+`queue`允许在`back`进行`push`(insert)，或者在`front`进行`pop`(remove)。
+
+`queue`支持操作: `push()`, `front()`, `back()`, `pop()`, `empty()`, `size()`等。
 
 - `push()`: 向队尾插入一个元素
 - `front()`: 返回队头元素
@@ -146,9 +178,27 @@ STL链表种类：
 
 注：`queue`没有`clear()`函数！
 
+> 测试代码：[quque](./queue_usage.cpp)
+
 ### 优先队列 (priority_queue)
 
-`priority_queue`: 优先队列(堆)，`push()`, `top()`, `pop()`
+```C++
+template<
+    class T,
+    class Container = std::vector<T>,
+    class Compare = std::less<typename Container::value_type>
+> class priority_queue;
+```
+
+优先队列(堆)`priority_queue`是一种容器适配器(container adaptor)，它以 ***对数*** 插入和提取为开销，提供 *最大* (默认情况下)元素的 ***常数*** 时间查找。用户可以提供一个`Compare`来改变排序，例如，使用`std::greater<T>`会使 *最小* 的元素显示为`top()`。
+
+使用`priority_queue`类似于在随机存取容器中管理[`heap`](https://en.cppreference.com/w/cpp/algorithm/make_heap)，好处是不会意外地使`heap`失效。
+
+注意`Container`指的是用于存储元素的底层容器类型，标准容器`std::vector`(包括`std::vector<bool>`)和`std::deque`可以满足这些要求。
+
+`priority_queue`使用`std::make_heap`, `std::push_heap`, `std::pop_heap`函数作为底层实现。
+
+`priority_queue`支持操作: `push()`, `top()`, `pop()`等。
 
 注：默认为大根堆，如果想得到小根堆，可以插入原插入数的负数(`h.push(-x)`)，或是直接定义小根堆
 
@@ -158,9 +208,20 @@ STL链表种类：
 - `top()`: 返回堆顶元素
 - `pop()`: 弹出堆顶元素
 
+> 测试代码：[priority_queue](./priority_queue_usage.cpp)
+
 ## 栈 (stack)
 
-`stack`: 栈，`push()`, `top()`, `pop()`
+```C++
+template<
+    class T,
+    class Container = std::deque<T>
+> class stack;
+```
+
+`std::stack`类是一个容器适配器(container adaptor)，它为程序员提供了堆栈的功能，特别是后进先出(LIFO)数据结构。该类模板充当底层容器的封装器，只提供一组特定的函数。`stack`从底层容器的后部(即堆栈顶部)推入和弹出元素。默认情况下，如果没有为特定`stack`实例化指定容器(Container)类，就会使用标准容器`std::deque`作为底层容器实现(其他选项可能为`std::vector`或`std::list`)。
+
+`stack`支持操作: `push()`, `top()`, `pop()`, `empty()`, `size()`等。
 
 注：`stack`也没有`clear()`函数！
 
@@ -168,9 +229,30 @@ STL链表种类：
 - `top()`: 返回栈顶元素
 - `pop()`: 弹出栈顶元素
 
+> 测试代码：[stack](./stack_usage.cpp)
+
 ## 双端队列 (deque)
 
-`deque`: 双端队列，队头队尾均可插入和删除，支持随机访问\寻址；类似于加强版的`vector`，缺点是速度慢
+```C++
+template<
+    class T,
+    class Allocator = std::allocator<T>
+> class deque;
+```
+
+`deque`: 双端队列，队头队尾均可插入和删除，支持随机访问或寻址；类似于加强版的`vector`，缺点是速度慢。
+
+`std::deque`(双端队列，double-ended queue)是一种索引序列容器，允许在其开始和结束位置快速插入和删除。此外，在`deque`的任何一端插入和删除都不会使指向其余元素的指针或引用失效。与`std::vector`不同的是，`deque`的元素并 ***不是连续存储的***：典型的实现方法是使用一系列单独分配的固定大小数组，并进行额外的簿记(bookkeeping)，这意味着对`deque`的索引访问必须执行两次指针反引用，而`vector`的索引访问只需执行一次。
+
+`deque`的存储空间会根据需要自动扩展和收缩。`deque`的扩展比`std::vector`的扩展成本 ***低***，因为它不需要将现有元素复制到新的内存位置。但另一方面，`deque`通常具有***较大***的最小内存成本；一个只容纳一个元素的`deque`需要分配其整个内部数组(例如，在64位`libstdc++`上是对象大小的8倍；在64位`libc++`上是对象大小的16倍或4096字节，以较大者为准)。
+
+对`deque`进行常见操作的开销如下：
+
+- 随机存取：常数 $O(1)$
+- 在结尾或开头插入或移除元素：常数 $O(1)$
+- 插入或删除元素：线性 $O(n)$
+
+常见操作：
 
 - `clear()`: 清空元素
 - `front()`: 
@@ -180,6 +262,8 @@ STL链表种类：
 - `push_front()`: 
 - `pop_front()`: 
 - `begin()` \ `end()`:
+
+> 测试代码：[deque](./deque_usage.cpp)
 
 ## 集合和映射
 
