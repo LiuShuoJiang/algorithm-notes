@@ -21,10 +21,10 @@ Notes:
 Example 1:
 
 - Input:
-- `["MyQueue", "push", "push", "peek", "pop", "empty"]`
-- `[[], [1], [2], [], [], []]`
+    - `["MyQueue", "push", "push", "peek", "pop", "empty"]`
+    - `[[], [1], [2], [], [], []]`
 - Output:
-  - `[null, null, null, 1, 1, false]`
+    - `[null, null, null, 1, 1, false]`
 
 Explanation:
 
@@ -45,9 +45,129 @@ Constraints:
 
 ## Solution
 
-### Implementation Using Stack
+### Implementation Using Two Stacks
 
+When pushing data, it is sufficient to simply place the data into the input stack. However, popping data is a bit more complex. If the output stack is empty, then all the data from the input stack should be transferred into it (note that it should be a complete transfer), and then data can be popped from the output stack. If the output stack is not empty, data can be directly popped from it.
 
+Finally, how do we determine if the queue is empty? If both the input and output stacks are empty, then the simulated queue is considered empty.
+
+#### Way 1
+
+```C++
+class MyQueue {
+public:
+    stack<int> stkIn, stkOut;
+    MyQueue() {
+        
+    }
+    
+    void push(int x) {
+        stkIn.push(x);
+    }
+    
+    int pop() {
+        // Import data from stIn only if stOut is empty (import all stIn data)
+        if (stkOut.empty()) {
+            while (!stkIn.empty()) {
+                stkOut.push(stkIn.top());
+                stkIn.pop();
+            }
+        }
+        int result = stkOut.top();
+        stkOut.pop();
+        return result;
+    }
+    
+    int peek() {
+        int result = this->pop();
+        // Because the pop function pops the element "result",
+        // it need to be added back again
+        stkOut.push(result);
+        return result;
+    }
+    
+    bool empty() {
+        return stkIn.empty() && stkOut.empty();
+    }
+};
+
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * MyQueue* obj = new MyQueue();
+ * obj->push(x);
+ * int param_2 = obj->pop();
+ * int param_3 = obj->peek();
+ * bool param_4 = obj->empty();
+ */
+```
+
+- Time complexity: `push` and `empty` are $O(1)$, `pop` and `peek` are $O(n)$;
+- Space complexity: $O(n)$.
+
+#### Way 2
+
+We use a stack to store the elements of the queue, and an auxiliary stack to aid in the implementation of the `pop()` and `peek()` operations.
+
+The four operations are implemented as follows:
+
+- `push(x)`: inserts `x` directly into the top of the stack;
+- `pop()`: if we need to pop the bottom element of the stack, we first insert all elements above the bottom of the stack into the auxiliary stack, then pop the bottom element, and finally re-press the elements of the auxiliary stack into the current stack;
+- `peek()`: returns the top element of the stack. Similarly, we first insert all elements above the bottom of the stack into the auxiliary stack, then eject the bottom element, and finally re-press the elements in the auxiliary stack into the current stack to restore the current stack to its original state;
+- `empty()`: returns whether the current stack is empty.
+
+```C++
+class MyQueue {
+public:
+    stack<int> stkMain, stkSupply;
+    MyQueue() {
+        
+    }
+    
+    void push(int x) {
+        stkMain.push(x);
+    }
+    
+    int pop() {
+        while (stkMain.size() > 1) {
+            stkSupply.push(stkMain.top());
+            stkMain.pop();
+        }
+        int t = stkMain.top();
+        stkMain.pop();
+        while (stkSupply.size()) {
+            stkMain.push(stkSupply.top());
+            stkSupply.pop();
+        }
+        return t;
+    }
+    
+    int peek() {
+        while (stkMain.size() > 1) {
+            stkSupply.push(stkMain.top());
+            stkMain.pop();
+        }
+        int t = stkMain.top();
+        while (stkSupply.size()) {
+            stkMain.push(stkSupply.top());
+            stkSupply.pop();
+        }
+        return t;
+    }
+    
+    bool empty() {
+        return stkMain.empty();
+    }
+};
+
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * MyQueue* obj = new MyQueue();
+ * obj->push(x);
+ * int param_2 = obj->pop();
+ * int param_3 = obj->peek();
+ * bool param_4 = obj->empty();
+ */
+```
 
 ### Implementation Using Array
 
