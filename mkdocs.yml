@@ -6,7 +6,7 @@ site_description: >-
   My Personal Algorithm Notes using C++ Programming Language
 
 # Repository
-repo_name: LiuShuoJiang/algorithm-notes
+repo_name: Algorithm Notes
 repo_url: https://github.com/LiuShuoJiang/algorithm-notes
 
 # Copyright
@@ -17,6 +17,66 @@ docs_dir: ./
 theme:
   name: material
   language: zh
+  features:
+    - header.autohide
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - content.code.copy
+  font:
+    text: Libre Baskerville
+  icon:
+    logo: material/library-outline
+  favicon: ./assets/favicon.png
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: purple
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - toc:
+      permalink: ⚓︎
+  - pymdownx.highlight:
+      anchor_linenums: true
+      linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github 
+      link: https://liushuojiang.github.io/
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/shuojiang-liu-09a749260/
+
+extra_javascript:
+  - ./javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 plugins: 
   - search
@@ -31,4 +91,7 @@ plugins:
         - locale: zh
           name: Chinese
           build: true
+          theme:
+            font:
+              text: Noto Serif SC
 
