@@ -46,3 +46,5 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 ## Stack and Queue
 
 - [232: Implement Queue using Stacks](./0200-0299/0232-implement-queue-using-stacks/README.md)
+- [225: Implement Stack using Queues](./0200-0299/0225-implement-stack-using-queues/README.md)
+- [20: Valid Parentheses](./0001-0099/0020-valid-parentheses/README.md)
