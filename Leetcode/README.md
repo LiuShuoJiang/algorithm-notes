@@ -48,3 +48,6 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [232: Implement Queue using Stacks](./0200-0299/0232-implement-queue-using-stacks/README.md)
 - [225: Implement Stack using Queues](./0200-0299/0225-implement-stack-using-queues/README.md)
 - [20: Valid Parentheses](./0001-0099/0020-valid-parentheses/README.md)
+- [1047: Remove All Adjacent Duplicates In String](./1000-1099/1047-remove-all-adjacent-duplicates-in-string/README.md)
+- [150: Evaluate Reverse Polish Notation](./0100-0199/0150-evaluate-reverse-polish-notation/README.md)
+- [239: Sliding Window Maximum](./0200-0299/0239-sliding-window-maximum/README.md)
