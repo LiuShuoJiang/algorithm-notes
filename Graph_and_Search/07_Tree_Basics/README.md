@@ -77,7 +77,7 @@ $$
 h+1\leqslant n\leqslant 2^{h+1}-1
 $$
 
-### Internal Nodes VS Internal Nodes in Binary Tree
+### Internal Nodes VS External Nodes in Binary Tree
 
 In a binary tree, there's a specific relationship between the number of nodes with degree 0 (leaf nodes) and the number of nodes with degree 2 (internal nodes with two children). This relationship is:
 
@@ -104,7 +104,7 @@ Given strict binary tree *height* $h$, the ***minimum*** number of *nodes* requi
 
 Given the number of *nodes* of a strict binary tree as $n$, the ***minimum*** *height* required for the strict binary tree is $\log _2\left( n+1 \right) -1$ (same as before), and the ***maximum*** *height* possible for the strict binary tree is $\frac{n-1}{2}$.
 
-#### Internal Nodes VS Internal Nodes in Strict Binary Tree
+#### Internal Nodes VS External Nodes in Strict Binary Tree
 
 A strict binary tree with $n$ ***internal nodes*** has $n+1$ ***external nodes***.
 
@@ -126,7 +126,7 @@ Given $m$-ary tree *height* $h$, the ***minimum*** number of *nodes* required fo
 
 Given the number of *nodes* of an $m$-ary tree as $n$, the ***minimum*** *height* required for the $m$-ary tree is $\log _m\left[ n\left( m-1 \right) +1 \right] -1$, and the ***maximum*** *height* possible for the $m$-ary tree is $\frac{n-1}{m}$.
 
-#### Internal Nodes VS Internal Nodes in a Strict M-ary Tree
+#### Internal Nodes VS External Nodes in a Strict M-ary Tree
 
 The number of external nodes $e$ and the number of internal nodes $i$ in a strict $m$-ary tree satisfies: $e=(m-1)\cdot i+1$.
 
