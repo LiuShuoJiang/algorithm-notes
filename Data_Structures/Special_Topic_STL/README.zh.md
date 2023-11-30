@@ -17,6 +17,10 @@
     - [集合 (set, multiset)](#集合-set-multiset)
     - [映射 (map, multimap)](#映射-map-multimap)
   - [哈希表](#哈希表)
+    - [unordered\_set](#unordered_set)
+    - [unordered\_multiset](#unordered_multiset)
+    - [unordered\_map](#unordered_map)
+    - [unordered\_multimap](#unordered_multimap)
   - [位集 (bitset)](#位集-bitset)
 
 STL的更多资源详见 [速查网站](https://www.rankred.com/useful-c-cheat-sheets/) 和 [速查PDF](https://upload.cppreference.com/mwiki/images/e/e7/container-library-overview-2012-12-27.pdf)。
@@ -359,7 +363,61 @@ template<
 
 `unordered_set`, `unordered_map`, `unordered_multiset`, `unordered_multimap`: 哈希表
 
-和上面类似(一一对应)，好处是增删改查的时间复杂度为 $O(1)$ ，但不支持`lower_bound()`和`upper_bound()`，也不支持迭代器的`++`和`--`(凡是和排序有关的操作都不支持)
+和上面类似(一一对应)，好处是增删改查的时间复杂度为 $O(1)$ ，但不支持`lower_bound()`和`upper_bound()`，也不支持迭代器的`++`和`--`(凡是和排序有关的操作都不支持)。
+
+### unordered_set
+
+```C++
+template<
+    class Key,
+    class Hash = std::hash<Key>,
+    class KeyEqual = std::equal_to<Key>,
+    class Allocator = std::allocator<Key>
+> class unordered_set;
+```
+
+`std::unordered_set` 是一种关联容器，包含一组类型为`Key`的**唯一**对象。搜索、插入和删除的平均时间复杂度为常数。
+
+在内部，元素并没有按照特定顺序排序，而是组织到*桶*(buckets)中。元素被放入哪个桶完全取决于其值的*哈希*。这允许以 ***常数*** 时间复杂度快速访问单个元素，因为一旦计算出哈希，它就指向元素所在的确切桶。
+
+由于修改可能会改变元素的哈希并损坏容器，因此`unordered_set`不允许修改容器元素 (即使是非`const`迭代器也不行)。
+
+### unordered_multiset
+
+```C++
+template<
+    class Key,
+    class Hash = std::hash<Key>,
+    class KeyEqual = std::equal_to<Key>,
+    class Allocator = std::allocator<Key>
+> class unordered_multiset;
+```
+
+`std::unordered_multiset` 是一种关联容器，包含可能**非唯一**的类型为`Key`的对象集合。搜索、插入和删除的平均时间复杂度为常数。
+
+在内部，元素并没有按照特定顺序排序，而是组织到桶中。元素被放入哪个桶完全取决于其值的哈希。这允许快速访问单个元素，因为一旦计算出哈希，它就指向元素所在的确切桶。
+
+此容器的迭代顺序不要求稳定(因此，例如，不能使用 `std::equal` 来比较两个 `std::unordered_multiset`)，除非每组键相等的元素（使用 `key_eq()` 作为比较器时比较相等）在迭代顺序中形成一个连续的子范围，也可以通过 `equal_range()` 访问。
+
+> 测试代码：[哈希](./hash_usage.cpp)
+
+### unordered_map
+
+`std::unordered_map` 是一种关联容器，包含具有唯一键的键值对。元素的搜索、插入和删除的平均时间复杂度为 ***常数***。
+
+在内部，元素并没有按照特定顺序排序，而是组织到桶中。元素被放入哪个桶完全取决于其键的哈希。拥有相同哈希码的键出现在同一个桶中。这允许快速访问单个元素，因为一旦计算出哈希，它就指向元素所在的确切桶。
+
+如果映射的键等价性谓词(key equality predicate)在传入这些键时返回真，则认为两个键是等价的。如果两个键是等价的，哈希函数必须为这两个键返回相同的值。
+
+### unordered_multimap
+
+`std::unordered_multimap` 是一种无序关联容器，支持等价键（一个 `unordered_multimap` 可以包含每个键值的多个副本），并将另一种类型的值与键相关联。`unordered_multimap` 类支持前向迭代器。搜索、插入和删除的平均时间复杂度为 ***常数***。
+
+在内部，元素并没有按照特定顺序排序，而是组织到桶中。元素被放入哪个桶完全取决于其键的哈希。这允许快速访问单个元素，因为一旦计算出哈希，它就指向元素所在的确切桶。
+
+此容器的迭代顺序不要求稳定(因此，例如，不能使用 `std::equal` 来比较两个 `std::unordered_multimaps`)，除非每组键相等的元素(使用 `key_eq()` 作为比较器时比较相等)在迭代顺序中形成一个连续的子范围，也可以通过 `equal_range()` 访问。
+
+> 测试代码：[哈希](./hash_usage_2.cpp)
 
 ## 位集 (bitset)
 
