@@ -1,5 +1,10 @@
 # 我的算法笔记
 
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/w/LiuShuoJiang/algorithm-notes)
+![GitHub top language](https://img.shields.io/github/languages/top/LiuShuoJiang/algorithm-notes)
+![GitHub deployments](https://img.shields.io/github/deployments/LiuShuoJiang/algorithm-notes/github-pages)
+![cc-by-nc-sa-shield](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)
+
 💡💡💡 持续更新中......
 
 本仓库记录一些常见的数据结构与算法思路、模板及示例代码，内容源于个人学习的总结与实践。
@@ -49,3 +54,5 @@
 - [Leetcode题解](./Leetcode/README.zh.md)
 
 本仓库采用[CC BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)协议。
+
+[![cc-by-nc-sa-image](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)

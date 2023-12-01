@@ -1,5 +1,10 @@
 # Algorithm Notes
 
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/w/LiuShuoJiang/algorithm-notes)
+![GitHub top language](https://img.shields.io/github/languages/top/LiuShuoJiang/algorithm-notes)
+![GitHub deployments](https://img.shields.io/github/deployments/LiuShuoJiang/algorithm-notes/github-pages)
+![cc-by-nc-sa-shield](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)
+
 An all-in-one repository for useful algorithms in C++ (Some contents are currently in Chinese only) ✒️
 
 💡💡💡 Keep on updating...
@@ -51,3 +56,5 @@ This repository records some common data structures and algorithms ideas, templa
 - [Leetcode Solutions](./Leetcode/README.md)
 
 This repository is licensed under [CC BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+[![cc-by-nc-sa-image](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
