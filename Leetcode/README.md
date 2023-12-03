@@ -58,3 +58,7 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [144: Binary Tree Preorder Traversal](./0100-0199/0144-binary-tree-preorder-traversal/README.md)
 - [94: Binary Tree Inorder Traversal](./0001-0099/0094-binary-tree-inorder-traversal/README.md)
 - [145: Binary Tree Postorder Traversal](./0100-0199/0145-binary-tree-postorder-traversal/README.md)
+
+## Monotonic Stack
+
+- [739: Daily Temperatures](./0700-0799/0739-daily-temperatures/README.md)
