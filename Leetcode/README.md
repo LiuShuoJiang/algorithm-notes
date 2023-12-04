@@ -62,3 +62,4 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 ## Monotonic Stack
 
 - [739: Daily Temperatures](./0700-0799/0739-daily-temperatures/README.md)
+- [496: Next Greater Element I](./0400-0499/0496-next-greater-element-i/README.md)
