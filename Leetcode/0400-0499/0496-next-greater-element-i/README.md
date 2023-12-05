@@ -38,3 +38,85 @@ Constraints:
 
 ## Solution
 
+### Solution 1
+
+- Use a decreasing monotonic stack to find the next greater element for each element in `nums2`.
+- Store these mappings (element to its next greater element) in a hash map.
+- Iterate through `nums1` and use the hash map to find the next greater element for each number. If it doesn't exist in the hash map, it means there is no next greater element, so we use -1.
+
+```C++
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        stack<int> stk;
+        unordered_map<int, int> nextGreater;
+
+        // Building the map for next greater elements in nums2
+        for (int num : nums2) {
+            while (!stk.empty() && stk.top() < num) {
+                nextGreater[stk.top()] = num;
+                stk.pop();
+            }
+            stk.push(num);
+        }
+
+        // Filling the results for nums1 based on the map
+        vector<int> res;
+        for (int num : nums1) {
+            if (nextGreater.find(num) != nextGreater.end())
+                res.push_back(nextGreater[num]);
+            else
+                res.push_back(-1);
+        }
+
+        return res;
+    }
+};
+```
+
+- The stack `s` keeps track of elements in `nums2` for which we are yet to find the next greater element.
+- When iterating through `nums2`, if we find an element greater than the element on the top of the stack, it means we've found the next greater element for the stack's top element. We record this in the `nextGreater` map.
+- Finally, for each element in `nums1`, we look up the `nextGreater` map. If an entry exists, we add it to the result; otherwise, we add -1.
+
+Complexity:
+
+- Time complexity: $O(N+M)$, where $N$ and $M$ are the lengths of `nums1` and `nums2`, respectively;
+- Space complexity: $O(N)$.
+
+### Solution 2
+
+```C++
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        stack<int> stk;
+        vector<int> res(nums1.size(), -1);  // Initialize the result array with -1 for each element in nums1
+        
+        // Create a mapping from elements of nums1 to their indices
+        unordered_map<int, int> mapping;
+        for (int i = 0; i < nums1.size(); i++) mapping[nums1[i]] = i;
+
+        // Push the first index of nums2 onto the stack
+        stk.push(0);
+
+        // Iterate through nums2 to find next greater elements
+        for (int i = 1; i < nums2.size(); i++) {
+            // Check if the current element is greater than the element at the index on top of the stack
+            while (!stk.empty() && nums2[i] > nums2[stk.top()]) {
+                // If the element at the top of the stack is in nums1 (using mapping)
+                if (mapping.count(nums2[stk.top()])) {
+                    int index = mapping[nums2[stk.top()]];  // Get the corresponding index in nums1
+                    res[index] = nums2[i];  // Update the result array for that element in nums1
+                }
+                stk.pop();  // Pop the element from the stack as we've found its next greater element
+            }
+            stk.push(i);  // Push the current index onto the stack
+        }
+
+        return res;
+    }
+};
+```
+
+- Time complexity: $O(N+M)$, where $N$ and $M$ are the lengths of `nums1` and `nums2`, respectively;
+- Space complexity: $O(N+M)$.
