@@ -104,9 +104,10 @@ In the "Daily Temperatures" problem, the monotonic stack is used to keep track o
 
 This approach is efficient because each element is pushed and popped at most once, leading to an $O(N)$ time complexity.
 
-1. **First Greater Element to the Right (Decreasing Monotonic Stack)**
-   - **Property**: Use a decreasing monotonic stack.
-   - **Why**: To find the next greater element, we want the stack to pop smaller elements when a greater element is encountered.
+Case 1: **First Greater Element to the Right (Decreasing Monotonic Stack)**
+
+- **Property**: Use a decreasing monotonic stack.
+- **Why**: To find the next greater element, we want the stack to pop smaller elements when a greater element is encountered.
 
 ```C++
 vector<int> nextGreaterElementRight(const vector<int>& nums) {
@@ -126,9 +127,10 @@ vector<int> nextGreaterElementRight(const vector<int>& nums) {
 }
 ```
 
-2. **First Smaller Element to the Right (Increasing Monotonic Stack)**
-   - **Property**: Use an increasing monotonic stack.
-   - **Why**: To find the next smaller element, the stack should pop larger elements when a smaller element is encountered.
+Case 2: **First Smaller Element to the Right (Increasing Monotonic Stack)**
+
+- **Property**: Use an increasing monotonic stack.
+- **Why**: To find the next smaller element, the stack should pop larger elements when a smaller element is encountered.
 
 ```C++
 vector<int> nextSmallerElementRight(const vector<int>& nums) {
@@ -148,9 +150,10 @@ vector<int> nextSmallerElementRight(const vector<int>& nums) {
 }
 ```
 
-3. **First Greater Element to the Left (Decreasing Monotonic Stack)**
-   - **Property**: Use a decreasing monotonic stack.
-   - **Why**: Similar to the first case but iterating from right to left.
+Case 3: **First Greater Element to the Left (Decreasing Monotonic Stack)**
+
+- **Property**: Use a decreasing monotonic stack.
+- **Why**: Similar to the first case but iterating from right to left.
 
 ```C++
 vector<int> previousGreaterElementLeft(const vector<int>& nums) {
@@ -170,9 +173,10 @@ vector<int> previousGreaterElementLeft(const vector<int>& nums) {
 }
 ```
 
-4. **First Smaller Element to the Left (Increasing Monotonic Stack)**
-   - **Property**: Use an increasing monotonic stack.
-   - **Why**: Similar to the second case but iterating in reverse.
+Case 4: **First Smaller Element to the Left (Increasing Monotonic Stack)**
+
+- **Property**: Use an increasing monotonic stack.
+- **Why**: Similar to the second case but iterating in reverse.
 
 ```C++
 vector<int> previousSmallerElementLeft(const vector<int>& nums) {
