@@ -58,6 +58,7 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [144: Binary Tree Preorder Traversal](./0100-0199/0144-binary-tree-preorder-traversal/README.md)
 - [94: Binary Tree Inorder Traversal](./0001-0099/0094-binary-tree-inorder-traversal/README.md)
 - [145: Binary Tree Postorder Traversal](./0100-0199/0145-binary-tree-postorder-traversal/README.md)
+- [226: Invert Binary Tree](./0200-0299/0226-invert-binary-tree/README.md)
 
 ## Monotonic Stack
 
