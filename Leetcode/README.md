@@ -65,3 +65,4 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [739: Daily Temperatures](./0700-0799/0739-daily-temperatures/README.md)
 - [496: Next Greater Element I](./0400-0499/0496-next-greater-element-i/README.md)
 - [503: Next Greater Element II](./0500-0599/0503-next-greater-element-ii/README.md)
+- [42: Trapping Rain Water](./0001-0099/0042-trapping-rain-water/README.md)
