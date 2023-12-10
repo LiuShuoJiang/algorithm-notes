@@ -95,6 +95,8 @@ public:
 };
 ```
 
+The right child is pushed before the left child. This is crucial because stacks are LIFO (Last In, First Out) structures, meaning the left child will be popped and processed first in the next iteration, maintaining the correct order for preorder traversal: root, left, right.
+
 #### Way 2 (Preferred)
 
 ```C++
