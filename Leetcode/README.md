@@ -65,6 +65,8 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [104: Maximum Depth of Binary Tree](./0100-0199/0104-maximum-depth-of-binary-tree/README.md)
 - [111: Minimum Depth of Binary Tree](./0100-0199/0111-minimum-depth-of-binary-tree/README.md)
 - [222: Count Complete Tree Nodes](./0200-0299/0222-count-complete-tree-nodes/README.md)
+- [110: Balanced Binary Tree](./0100-0199/0110-balanced-binary-tree/README.md)
+- [257: Binary Tree Paths](./0200-0299/0257-binary-tree-paths/README.md)
 
 ## Monotonic Stack
 
