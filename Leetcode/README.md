@@ -67,6 +67,8 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [222: Count Complete Tree Nodes](./0200-0299/0222-count-complete-tree-nodes/README.md)
 - [110: Balanced Binary Tree](./0100-0199/0110-balanced-binary-tree/README.md)
 - [257: Binary Tree Paths](./0200-0299/0257-binary-tree-paths/README.md)
+- [404: Sum of Left Leaves](./0400-0499/0404-sum-of-left-leaves/README.md)
+- [513: Find Bottom Left Tree Value](./0500-0599/0513-find-bottom-left-tree-value/README.md)
 
 ## Monotonic Stack
 
