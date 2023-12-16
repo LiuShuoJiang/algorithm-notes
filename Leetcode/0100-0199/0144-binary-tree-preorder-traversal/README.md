@@ -59,6 +59,17 @@ public:
 };
 ```
 
+Extra: Python solution:
+
+```Python
+class Solution:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return []
+        # * sign in python is an unpacking symbol that unformats a data structure to get the inner elements directly
+        return [root.val, *self.preorderTraversal(root.left), *self.preorderTraversal(root.right)]
+```
+
 ### Iterative Method
 
 #### Way 1
