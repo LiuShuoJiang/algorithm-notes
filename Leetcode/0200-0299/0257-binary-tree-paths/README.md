@@ -90,9 +90,6 @@ public:
 };
 ```
 
-- Time Complexity: $O(N)$, where $N$ is the number of nodes in the tree. Each node is visited exactly once in the traversal.
-- Space Complexity: $O(H)$, where $H$ is the height of the tree. This is due to the space taken up by the recursion stack. In the worst case (a skewed tree), it could become $O(N)$, but in a balanced tree, it's $O(\log N)$.
-
 ***Recursion and Backtracking in the Context of Binary Tree Traversal***:
 
 **Recursion** is a method of solving problems where a function calls itself as a subroutine. This allows the function to be repeated several times, as it can call itself during its execution. In the code, the `traversal` function is recursive. Here's how it works:
@@ -194,3 +191,91 @@ public:
     }
 };
 ```
+
+Another way of writing:
+
+```C++
+class Solution {
+private:
+    vector<string> res;
+    void findPaths(TreeNode* root, string path) {
+        if (!root) return;
+        path += to_string(root->val);
+        if (!root->left && !root->right) {
+            res.push_back(path);
+            return;
+        }
+        findPaths(root->left, path + "->");
+        findPaths(root->right, path + "->");
+    }
+public:
+    vector<string> binaryTreePaths(TreeNode* root) {
+        findPaths(root, "");
+        return res;
+    }
+};
+```
+
+***Time Complexity***:
+
+1. **Traversal Complexity**: Each node in the tree is visited exactly once. If there are $N$ nodes in the tree, the traversal part of the algorithm is $O(N)$.
+2. **String Operations**: In each recursive call, a new string is created that includes the current path plus the value of the current node. The time complexity for string concatenation in C++ can vary, but in the worst case, it is proportional to the length of the new string being created.
+3. **Worst-Case Scenario for String Concatenation**:
+    - For a balanced tree, the length of the path (and thus the length of the string) at any node is proportional to the height of the tree, which is $\log N$ for a balanced tree.
+    - In an unbalanced tree, in the worst case, the length can be proportional to $N$, such as in a skewed tree (where each node has only one child).
+
+Combining these factors, the time complexity is $O(N \cdot L)$, where $L$ represents the average length of the path string in each recursive call. In the worst case, especially for unbalanced trees, $L$ can approach $N$, leading to a time complexity of $O(N^2)$.
+
+***Space Complexity***:
+
+1. **Space for Recursive Calls (Recursion Stack)**: The maximum depth of the recursion stack is proportional to the height of the tree. In the worst case, for a skewed tree, this can be $O(N)$.
+2. **Space for Path Strings**:
+    - Each recursive call creates a new string representing the path. Although these strings are temporary and each exists only during the execution of a single recursive call, the space occupied by these strings at any moment is proportional to the depth of the recursion and the length of the path string.
+    - In the worst case, where the tree is skewed, the length of the path string can be proportional to \( N \), leading to a space complexity of $O(N^2)$ due to the concatenation of strings at each level of the tree.
+    - In the bast case, the binary tree is balanced, leading to the space complexity of $O((\log n)^2)$.
+
+### Way 4: Iterative Method
+
+See [reference](https://leetcode.cn/problems/binary-tree-paths/solutions/400326/er-cha-shu-de-suo-you-lu-jing-by-leetcode-solution/) (Chinese).
+
+```C++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<string> binaryTreePaths(TreeNode* root) {
+        vector<string> paths;
+        if (!root) return paths;
+        queue<pair<TreeNode*, string>> q;
+        q.push(make_pair(root, to_string(root->val)));
+        while (!q.empty()) {
+            auto t = q.front();
+            q.pop();
+            if (!(t.first)->left && !(t.first)->right) paths.push_back(t.second);
+            else {
+                if ((t.first)->left) {
+                    q.push(make_pair((t.first)->left, t.second + "->" + to_string((t.first)->left->val)));
+                }
+                if ((t.first)->right) {
+                    q.push(make_pair((t.first)->right, t.second + "->" + to_string((t.first)->right->val)));
+                }
+            }
+        }
+        return paths;
+    }
+};
+```
+
+We can also implement this with a breadth-first search. We maintain a queue that stores the node and the path from the root to that node. At first this queue has only the root node in it. At each iteration step, we take out the first node in the queue and if it is a leaf node, add its corresponding path to the answer. If it is not a leaf node, all its child nodes are added to the end of the queue. When the queue is empty the breadth-first search ends and we get the answer.
+
+- Worst time complexity: $O(N^2)$;
+- Worst space complexity: $O(N^2)$.
