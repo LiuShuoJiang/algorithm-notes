@@ -69,6 +69,9 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [257: Binary Tree Paths](./0200-0299/0257-binary-tree-paths/README.md)
 - [404: Sum of Left Leaves](./0400-0499/0404-sum-of-left-leaves/README.md)
 - [513: Find Bottom Left Tree Value](./0500-0599/0513-find-bottom-left-tree-value/README.md)
+- [112: Path Sum](./0100-0199/0112-path-sum/README.md)
+- [113: Path Sum II](./0100-0199/0113-path-sum-ii/README.md)
+- [106: Construct Binary Tree from Inorder and Postorder Traversal](./0100-0199/0106-construct-binary-tree-from-inorder-and-postorder-traversal/README.md)
 
 ## Monotonic Stack
 
