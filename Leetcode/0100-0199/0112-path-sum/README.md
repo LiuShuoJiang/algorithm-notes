@@ -40,6 +40,8 @@ Constraints:
 
 ## Solution
 
+### Way 1 (Recursion)
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -61,3 +63,53 @@ public:
     }
 };
 ```
+
+- Time complexity: $O(N)$, where $N$ is the number of nodes in the tree;
+- Space complexity: $O(H)$, where $H$ is the height of the tree (Worst: $O(N)$; Best: $O(\log N)$ ).
+
+### Way 2 (Pre-order)
+
+```C++
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int targetSum) {
+        if (!root) return false;
+        stack<pair<TreeNode*, int>> stk;
+        stk.push(make_pair(root, root->val));
+        while (!stk.empty()) {
+            auto node = stk.top();
+            stk.pop();
+            if (!(node.first)->left && !(node.first)->right && targetSum == node.second) return true;
+            if ((node.first)->right)
+                stk.push(make_pair((node.first)->right, node.second + (node.first)->right->val));
+            if ((node.first)->left)
+                stk.push(make_pair((node.first)->left, node.second + (node.first)->left->val));
+        }
+        return false;
+    }
+};
+```
+
+### Way 3 (Level-order)
+
+```C++
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int targetSum) {
+        if (!root) return false;
+        queue<pair<TreeNode*, int>> q;
+        q.push(make_pair(root, root->val));
+        while (!q.empty()) {
+            auto t = q.front();
+            q.pop();
+            if (!t.first->left && !t.first->right && t.second == targetSum) return true;
+            if (t.first->left) q.push(make_pair(t.first->left, t.first->left->val + t.second));
+            if (t.first->right) q.push(make_pair(t.first->right, t.first->right->val + t.second));
+        }
+        return false;
+    }
+};
+```
+
+- Time complexity: $O(N)$;
+- Space complexity: $O(N)$.
