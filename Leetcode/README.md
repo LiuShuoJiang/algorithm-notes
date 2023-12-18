@@ -79,6 +79,7 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [77: Combinations](./0001-0099/0077-combinations/README.md)
 - [216: Combination Sum III](./0200-0299/0216-combination-sum-iii/README.md)
 - [17: Letter Combinations of a Phone Number](./0001-0099/0017-letter-combinations-of-a-phone-number/README.md)
+- [39: Combination Sum](./0001-0099/0039-combination-sum/README.md)
 
 ## Monotonic Stack
 
