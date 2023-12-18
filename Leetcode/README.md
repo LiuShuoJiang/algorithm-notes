@@ -76,7 +76,9 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 
 ## Backtracking Algorithm
 
-
+- [77: Combinations](./0001-0099/0077-combinations/README.md)
+- [216: Combination Sum III](./0200-0299/0216-combination-sum-iii/README.md)
+- [17: Letter Combinations of a Phone Number](./0001-0099/0017-letter-combinations-of-a-phone-number/README.md)
 
 ## Monotonic Stack
 
