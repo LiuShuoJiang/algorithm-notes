@@ -73,6 +73,8 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [113: Path Sum II](./0100-0199/0113-path-sum-ii/README.md)
 - [105: Construct Binary Tree from Preorder and Inorder Traversal](./0100-0199/0105-construct-binary-tree-from-preorder-and-inorder-traversal/README.md)
 - [106: Construct Binary Tree from Inorder and Postorder Traversal](./0100-0199/0106-construct-binary-tree-from-inorder-and-postorder-traversal/README.md)
+- [654: Maximum Binary Tree](./0600-0699/0654-maximum-binary-tree/README.md)
+- [617: Merge Two Binary Trees](./0600-0699/0617-merge-two-binary-trees/README.md)
 
 ## Backtracking Algorithm
 
