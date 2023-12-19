@@ -55,6 +55,7 @@ private:
         }
         for (int i = startIndex; i < candidates.size(); i++) {
             path.push_back(candidates[i]);
+            // No need to use i+1, meaning that the current number can be read repeatedly
             backtracking(candidates, sum - candidates[i], i);
             path.pop_back();
         }
@@ -69,6 +70,37 @@ public:
 
 - Time complexity: $O(n\times 2^n)$;
 - Space complexity: $O(\mathrm{target})$.
+
+***Optimized code with pruning***:
+
+```C++
+class Solution {
+private:
+    vector<vector<int>> res;
+    vector<int> path;
+    void backtracking(vector<int>& candidates, int sum, int startIndex) {
+        if (sum < 0) return ;
+        if (sum == 0) {
+            res.push_back(path);
+            return;
+        }
+        for (int i = startIndex; i < candidates.size(); i++) {
+            if (sum - candidates[i] < 0) break;
+            path.push_back(candidates[i]);
+            backtracking(candidates, sum - candidates[i], i);
+            path.pop_back();
+        }
+    }
+public:
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        sort(candidates.begin(), candidates.end());
+        backtracking(candidates, target, 0);
+        return res;
+    }
+};
+```
+
+After sorting the total set, if the `sum` of the next level (which is the `sum + candidates[i]` of this level) is already greater than `target`, we can end this round of traversal of the `for` loop.
 
 ### Way 2
 
