@@ -82,6 +82,9 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [216: Combination Sum III](./0200-0299/0216-combination-sum-iii/README.md)
 - [17: Letter Combinations of a Phone Number](./0001-0099/0017-letter-combinations-of-a-phone-number/README.md)
 - [39: Combination Sum](./0001-0099/0039-combination-sum/README.md)
+- [40: Combination Sum II](./0001-0099/0040-combination-sum-ii/README.md)
+- [131: Palindrome Partitioning](./0100-0199/0131-palindrome-partitioning/README.md)
+- [93: Restore IP Addresses](./0001-0099/0093-restore-ip-addresses/README.md)
 
 ## Monotonic Stack
 
