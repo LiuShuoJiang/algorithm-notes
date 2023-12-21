@@ -85,6 +85,9 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [40: Combination Sum II](./0001-0099/0040-combination-sum-ii/README.md)
 - [131: Palindrome Partitioning](./0100-0199/0131-palindrome-partitioning/README.md)
 - [93: Restore IP Addresses](./0001-0099/0093-restore-ip-addresses/README.md)
+- [78: Subsets](./0001-0099/0078-subsets/README.md)
+- [90: Subsets II](./0001-0099/0090-subsets-ii/README.md)
+- [491: Non-decreasing Subsequences](./0400-0499/0491-non-decreasing-subsequences/README.md)
 
 ## Monotonic Stack
 
