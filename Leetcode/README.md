@@ -88,6 +88,8 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [78: Subsets](./0001-0099/0078-subsets/README.md)
 - [90: Subsets II](./0001-0099/0090-subsets-ii/README.md)
 - [491: Non-decreasing Subsequences](./0400-0499/0491-non-decreasing-subsequences/README.md)
+- [46: Permutations](./0001-0099/0046-permutations/README.md)
+- [47: Permutations II](./0001-0099/0047-permutations-ii/README.md)
 
 ## Monotonic Stack
 
@@ -95,3 +97,7 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [496: Next Greater Element I](./0400-0499/0496-next-greater-element-i/README.md)
 - [503: Next Greater Element II](./0500-0599/0503-next-greater-element-ii/README.md)
 - [42: Trapping Rain Water](./0001-0099/0042-trapping-rain-water/README.md)
+
+## Dynamic Programming
+
+- [509: Fibonacci Number](./0500-0599/0509-fibonacci-number/README.md)
