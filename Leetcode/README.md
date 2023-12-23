@@ -75,6 +75,8 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [106: Construct Binary Tree from Inorder and Postorder Traversal](./0100-0199/0106-construct-binary-tree-from-inorder-and-postorder-traversal/README.md)
 - [654: Maximum Binary Tree](./0600-0699/0654-maximum-binary-tree/README.md)
 - [617: Merge Two Binary Trees](./0600-0699/0617-merge-two-binary-trees/README.md)
+- [700: Search in a Binary Search Tree](./0700-0799/0700-search-in-a-binary-search-tree/README.md)
+- [98: Validate Binary Search Tree](./0001-0099/0098-validate-binary-search-tree/README.md)
 
 ## Backtracking Algorithm
 
