@@ -164,3 +164,29 @@ public:
 
 - Time Complexity: The time complexity is $O(N)$, where $N$ is the number of nodes in the tree. Despite the recursive calls, each node is visited exactly once.
 - Space Complexity: The space complexity is $O(H)$, where $H$ is the height of the tree. This space is used by the recursion stack. In the worst case (a skewed tree), $H$ can be $O(N)$. In a balanced tree, $H$ would be $O(\log N)$. The `pre` pointer does not add significant space complexity, as it's just a single additional pointer.
+
+### Way 4 (Iterative Solution)
+
+```C++
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        stack<TreeNode*> stk;
+        TreeNode* curr = root;
+        TreeNode* pre = nullptr;
+        while (curr || !stk.empty()) {
+            if (curr) {
+                stk.push(curr);
+                curr = curr->left;
+            } else {
+                TreeNode *t = stk.top();
+                stk.pop();
+                if (pre && t->val <= pre->val) return false;
+                pre = t;
+                curr = t->right;
+            }
+        }
+        return true;
+    }
+};
+```
