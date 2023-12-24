@@ -25,7 +25,36 @@ Constraints:
 - `1 <= nums.length <= 10`
 - `-10 <= nums[i] <= 10`
 
-## solution
+## Solution
+
+### Way 1
+
+```C++
+class Solution {
+private:
+    vector<vector<int>> res;
+    vector<int> path;
+    void backtracking(vector<int>& nums, int startIndex) {
+        res.push_back(path);
+        unordered_set<int> used;
+        for (int i = startIndex; i < nums.size(); i++) {
+            if (used.find(nums[i]) != used.end()) continue;
+            used.insert(nums[i]);
+            path.push_back(nums[i]);
+            backtracking(nums, i + 1);
+            path.pop_back();
+        }
+    }
+public:
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        backtracking(nums, 0);
+        return res;
+    }
+};
+```
+
+### Way 2
 
 ```C++
 class Solution {
