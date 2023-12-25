@@ -92,6 +92,7 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [491: Non-decreasing Subsequences](./0400-0499/0491-non-decreasing-subsequences/README.md)
 - [46: Permutations](./0001-0099/0046-permutations/README.md)
 - [47: Permutations II](./0001-0099/0047-permutations-ii/README.md)
+- [51: N Queens](./0001-0099/0051-n-queens/README.md)
 
 ## Monotonic Stack
 
@@ -103,3 +104,7 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 ## Dynamic Programming
 
 - [509: Fibonacci Number](./0500-0599/0509-fibonacci-number/README.md)
+- [70: Climbing Stairs](./0001-0099/0070-climbing-stairs/README.md)
+- [746: Min Cost Climbing Stairs](./0700-0799/0746-min-cost-climbing-stairs/README.md)
+- [62: Unique Paths](./0001-0099/0062-unique-paths/README.md)
+- [63: Unique Paths II](./0001-0099/0063-unique-paths-ii/README.md)
