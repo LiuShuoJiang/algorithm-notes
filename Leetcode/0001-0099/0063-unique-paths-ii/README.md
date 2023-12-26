@@ -63,6 +63,8 @@ public:
 
 ### Way 2
 
+See [reference](https://leetcode.com/problems/unique-paths-ii/solutions/23252/4ms-o-n-dp-solution-in-c-with-explanations/).
+
 ```C++
 class Solution {
 public:
@@ -80,3 +82,30 @@ public:
     }
 };
 ```
+
+### Way 3
+
+```C++
+class Solution {
+public:
+    int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
+        int m = obstacleGrid.size(), n = obstacleGrid[0].size();
+        vector<int> dp(n);
+        dp[0] = (obstacleGrid[0][0] == 0) ? 1 : 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (obstacleGrid[i][j] == 1) {
+                    dp[j] = 0;
+                    continue;
+                }
+                if (j - 1 >= 0 && obstacleGrid[i][j - 1] == 0)
+                    dp[j] += dp[j - 1];
+            }
+        }
+        return dp.back();
+    }
+};
+```
+
+- Time complexity: $O(m\times n)$;
+- Space complexity: $O(n)$.
