@@ -108,3 +108,5 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [746: Min Cost Climbing Stairs](./0700-0799/0746-min-cost-climbing-stairs/README.md)
 - [62: Unique Paths](./0001-0099/0062-unique-paths/README.md)
 - [63: Unique Paths II](./0001-0099/0063-unique-paths-ii/README.md)
+- [343: Integer Break](./0300-0399/0343-integer-break/README.md)
+- [96: Unique Binary Search Trees](./0001-0099/0096-unique-binary-search-trees/README.md)
