@@ -111,3 +111,5 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [343: Integer Break](./0300-0399/0343-integer-break/README.md)
 - [96: Unique Binary Search Trees](./0001-0099/0096-unique-binary-search-trees/README.md)
 - [416: Partition Equal Subset Sum](./0400-0499/0416-partition-equal-subset-sum/README.md)
+- [1049: Last Stone Weight II](./1000-1099/1049-last-stone-weight-ii/README.md)
+- [494: Target Sum](./0400-0499/0494-target-sum/README.md)
