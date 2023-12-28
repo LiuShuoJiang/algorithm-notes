@@ -153,3 +153,29 @@ public:
     }
 };
 ```
+
+### Way 4
+
+Hash Table Solution:
+
+```C++
+class Solution {
+public:
+    bool canPartition(vector<int>& nums) {
+        int sum = accumulate(nums.begin(), nums.end(), 0);
+        if (sum % 2) return false;
+        int target = sum / 2;
+        unordered_set<int> memo{0};
+        for (auto n : nums) {
+            unordered_set<int> new_sums{};
+            for (int sum : memo) {
+                if (sum + n == target) return true;
+                if (memo.count(sum + n)) continue;
+                new_sums.emplace(sum + n);
+            }
+            memo.insert(new_sums.begin(), new_sums.end());
+        }
+        return false;
+    }
+};
+```
