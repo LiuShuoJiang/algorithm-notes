@@ -113,3 +113,6 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [416: Partition Equal Subset Sum](./0400-0499/0416-partition-equal-subset-sum/README.md)
 - [1049: Last Stone Weight II](./1000-1099/1049-last-stone-weight-ii/README.md)
 - [494: Target Sum](./0400-0499/0494-target-sum/README.md)
+- [474: Ones and Zeroes](./0400-0499/0474-ones-and-zeroes/README.md)
+- [518: Coin Change II](./0500-0599/0518-coin-change-ii/README.md)
+- [139: Word Break](./0100-0199/0139-word-break/README.md)
