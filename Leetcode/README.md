@@ -115,4 +115,6 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [494: Target Sum](./0400-0499/0494-target-sum/README.md)
 - [474: Ones and Zeroes](./0400-0499/0474-ones-and-zeroes/README.md)
 - [518: Coin Change II](./0500-0599/0518-coin-change-ii/README.md)
+- [377: Combination Sum IV](./0300-0399/0377-combination-sum-iv/README.md)
+- [322: Coin Change](./0300-0399/0322-coin-change/README.md)
 - [139: Word Break](./0100-0199/0139-word-break/README.md)
