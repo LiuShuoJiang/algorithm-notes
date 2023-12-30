@@ -84,6 +84,13 @@ public:
 };
 ```
 
+***Mapping to Subset Sum Problem***:
+
+1. **Sum of all Elements**: Let's denote the sum of all elements in `nums` as `sum`.
+2. **Partitioning into Two Subsets**: Imagine splitting the `nums` array into two subsets, `S1` and `S2`, where `S1` contains elements with a '+' sign, and `S2` contains elements with a '-' sign. Then, the problem boils down to finding subsets `S1` and `S2` such that `sum(S1) - sum(S2) = target`.
+3. **Rearranging the Equation**: Rearranging the equation, we get `sum(S1) = (target + sum(S2)) = (target + sum - sum(S1))`. Simplifying, `2 * sum(S1) = target + sum`.
+4. **Finding sum(S1)**: The problem now is to find a subset `S1` such that `sum(S1) = (target + sum) / 2`. This is a standard subset sum problem.
+
 - Time Complexity: $O(nm)$ where $n$ is the number of elements in nums and $m$ is `(sum + target) / 2`.
 - Space Complexity: $O(nm)$ due to the 2D array.
 
