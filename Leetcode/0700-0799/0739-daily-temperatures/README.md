@@ -51,6 +51,26 @@ public:
 - Time complexity: $O(N)$;
 - Space complexity: $O(N)$.
 
+Solution using array representing stack:
+
+```C++
+class Solution {
+public:
+    vector<int> dailyTemperatures(vector<int>& temperatures) {
+        int stk[100010], tt = 0;
+        vector<int> res(temperatures.size(), 0);
+        for (int i = 0; i < temperatures.size(); i++) {
+            while (tt > 0 && temperatures[i] > temperatures[stk[tt]]) {
+                res[stk[tt]] = i - stk[tt];
+                tt--;
+            }
+            stk[++tt] = i;
+        }
+        return res;
+    }
+};
+```
+
 ### Analysis of Solution
 
 **Understanding Monotonic Stack**: A monotonic stack is a stack where the elements are always in sorted order. In this problem, we'll use a decreasing monotonic stack. The stack will store the indices of the `temperatures` array, and at each step, we'll use it to find the next warmer temperature.
