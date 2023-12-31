@@ -132,6 +132,26 @@ public:
 - Time complexity: $O(n)$;
 - Space complexity: $O(k)$.
 
+Easier way of writing (recommended):
+
+```C++
+class Solution {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        deque<int> dq;
+        vector<int> res;
+        for (int i = 0; i < nums.size(); i++) {
+            while (!dq.empty() && nums[i] >= nums[dq.back()])
+                dq.pop_back();
+            dq.push_back(i);
+            if (dq.front() < i - k + 1) dq.pop_front();
+            if (i >= k - 1) res.push_back(nums[dq.front()]);
+        }
+        return res;
+    }
+};
+```
+
 ### Simulate Queue Using Array
 
 A **monotonic queue** is a type of queue where elements can be *enqueued* and ***dequeued*** from the rear, and *dequeued* from the front. Its purpose is to maintain the monotonicity of a subsequence. To maintain the maximum value, a **descending subsequence** within a sliding window is maintained.
