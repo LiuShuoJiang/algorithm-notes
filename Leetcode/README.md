@@ -53,6 +53,10 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [239: Sliding Window Maximum](./0200-0299/0239-sliding-window-maximum/README.md)
 - [347: Top K Frequent Elements](./0300-0399/0347-top-k-frequent-elements/README.md)
 
+## Heap
+
+- [295: Find Median from Data Stream](./0200-0299/0295-find-median-from-data-stream/README.md)
+
 ## Binary Tree
 
 - [144: Binary Tree Preorder Traversal](./0100-0199/0144-binary-tree-preorder-traversal/README.md)
