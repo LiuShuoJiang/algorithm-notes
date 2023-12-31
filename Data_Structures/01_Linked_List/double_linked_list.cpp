@@ -61,6 +61,7 @@ void init() {
     idx = 2;  //idx此时已经用掉两个点了
 }
 
+// 在索引为k的右侧插入x，对应第k-1个插入元素右侧插入x
 //在第k个点的右边插入x
 //注：在下标为k的点的左边插入下可以直接调用：add(l[k], x);
 //因为在k的左边插入一个数等价于在l[k]的右边插入一个数
@@ -75,6 +76,7 @@ void add(int k, int x) {
     idx++;
 }
 
+//删除索引为k的元素，对应于删除第k-1个插入元素
 //删除第k个点
 void remove(int k) {
     r[l[k]] = r[k];
@@ -102,7 +104,7 @@ int main() {
             add(0, x);
         } else if (op == "D") {
             cin >> k;
-            remove(k + 1);
+            remove(k + 1);  //因为初始化加了两个节点，所以第k个数的下标为k+2-1
         } else if (op == "IL") {
             cin >> k >> x;
             add(l[k + 1], x);
