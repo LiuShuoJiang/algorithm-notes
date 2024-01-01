@@ -42,6 +42,8 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 
 - [344: Reverse String](./0300-0399/0344-reverse-string/README.md)
 - [541: Reverse String II](./0500-0599/0541-reverse-string-ii/README.md)
+- [28: Find the Index of the First Occurrence in a String](./0001-0099/0028-find-the-index-of-the-first-occurrence-in-a-string/README.md)
+- [459: Repeated Substring Pattern](./0400-0499/0459-repeated-substring-pattern/README.md)
 
 ## Stack and Queue
 
