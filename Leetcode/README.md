@@ -37,6 +37,7 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [160: Intersection of Two Linked Lists](./0100-0199/0160-intersection-of-two-linked-lists/README.md)
 - [141: Linked List Cycle](./0100-0199/0141-linked-list-cycle/README.md)
 - [142: Linked List Cycle II](./0100-0199/0142-linked-list-cycle-ii/README.md)
+- [21: Merge Two Sorted Lists](./0001-0099/0021-merge-two-sorted-lists/README.md)
 
 ## String
 
