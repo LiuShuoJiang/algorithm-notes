@@ -15,6 +15,12 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [54: Spiral Matrix](./0001-0099/0054-spiral-matrix/README.md)
 - [59: Spiral Matrix II](./0001-0099/0059-spiral-matrix-ii/README.md)
 
+## Sort
+
+- [215: Kth Largest Element in an Array](./0200-0299/0215-kth-largest-element-in-an-array/README.md)
+- [148: Sort List](./0100-0199/0148-sort-list/README.md)
+- [912: Sort an Array](./0900-0999/0912-sort-an-array/README.md)
+
 ## Hash Map
 
 - [242: Valid Anagram](./0200-0299/0242-valid-anagram/README.md)
@@ -38,6 +44,7 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [141: Linked List Cycle](./0100-0199/0141-linked-list-cycle/README.md)
 - [142: Linked List Cycle II](./0100-0199/0142-linked-list-cycle-ii/README.md)
 - [21: Merge Two Sorted Lists](./0001-0099/0021-merge-two-sorted-lists/README.md)
+- [23: Merge k Sorted Lists](./0001-0099/0023-merge-k-sorted-lists/README.md)
 
 ## String
 
