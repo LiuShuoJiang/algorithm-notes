@@ -32,6 +32,7 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [383: Ransom Note](./0300-0399/0383-ransom-note/README.md)
 - [15: 3 Sum](./0001-0099/0015-3sum/README.md)
 - [18: 4 Sum](./0001-0099/0018-4sum/README.md)
+- [128: Longest Consecutive Sequence](./0100-0199/0128-longest-consecutive-sequence/README.md)
 
 ## Linked List
 
@@ -63,9 +64,15 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [239: Sliding Window Maximum](./0200-0299/0239-sliding-window-maximum/README.md)
 - [347: Top K Frequent Elements](./0300-0399/0347-top-k-frequent-elements/README.md)
 
+## Trie
+
+- [208: Implement Trie (Prefix Tree)](./0200-0299/0208-implement-trie-prefix-tree/README.md)
+- [720: Longest Word in Dictionary](./0700-0799/0720-longest-word-in-dictionary/README.md)
+
 ## Heap
 
 - [295: Find Median from Data Stream](./0200-0299/0295-find-median-from-data-stream/README.md)
+- [703: Kth Largest Element in a Stream](./0700-0799/0703-kth-largest-element-in-a-stream/README.md)
 
 ## Binary Tree
 
