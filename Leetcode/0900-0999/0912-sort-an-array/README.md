@@ -84,3 +84,78 @@ public:
 
 - Time complexity: average case $O(n\log n)$, worst case $O(n^2)$ (but we rarely reach the worst case);
 - Space complexity: $O(\log n)$.
+
+### Heap Sort
+
+#### STL Version
+
+```C++
+class Solution {
+public:
+    vector<int> sortArray(vector<int>& nums) {
+        priority_queue<int, vector<int>, greater<int>> q;
+        vector<int> res;
+        res.reserve(nums.size());
+        for (int i : nums) q.push(i);
+        while (!q.empty()) {
+            res.emplace_back(q.top());
+            q.pop();
+        }
+        return res;
+    }
+};
+```
+
+#### Array Version
+
+```C++
+class Solution {
+private:
+    vector<int> h;
+    int cnt;
+
+    void up(int u) {
+        if (u / 2 && h[u / 2] > h[u]) {
+            swap(h[u], h[u / 2]);
+            up(u / 2);
+        }
+    }
+
+    void down(int u) {
+        int v = u;
+        if (2 * u <= cnt && h[2 * u] < h[v]) v = 2 * u;
+        if (2 * u + 1 <= cnt && h[2 * u + 1] < h[v]) v = 2 * u + 1;
+        if (u != v) {
+            swap(h[u], h[v]);
+            down(v);
+        }
+    }
+
+    void push(int x) {
+        h[++cnt] = x;
+        up(cnt);
+    }
+
+    void pop() {
+        h[1] = h[cnt--];
+        down(1);
+    }
+
+public:
+    vector<int> sortArray(vector<int>& nums) {
+        int n = nums.size();
+        h = vector<int>(n + 1, 0);
+        cnt = nums.size();
+        for (int i = 1; i <= n; i++) h[i] = nums[i - 1];
+        for (int i = n / 2; i; i--) down(i);
+
+        vector<int> res;
+        res.reserve(n);
+        while (n--) {
+            res.emplace_back(h[1]);
+            pop();
+        }
+        return res;
+    }
+};
+```
