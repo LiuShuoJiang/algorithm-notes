@@ -122,6 +122,11 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [503: Next Greater Element II](./0500-0599/0503-next-greater-element-ii/README.md)
 - [42: Trapping Rain Water](./0001-0099/0042-trapping-rain-water/README.md)
 
+## Search
+
+- [130: Surrounded Regions](./0100-0199/0130-surrounded-regions/README.md)
+- [200: Number of Islands](./0200-0299/0200-number-of-islands/README.md)
+
 ## Dynamic Programming
 
 - [509: Fibonacci Number](./0500-0599/0509-fibonacci-number/README.md)
