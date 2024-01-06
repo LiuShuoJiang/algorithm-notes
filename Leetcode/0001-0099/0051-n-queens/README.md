@@ -154,4 +154,38 @@ However, to use arrays efficiently and avoid negative indices for left diagonals
 - Space Complexity: Space Complexity is $O(N)$
     - The space complexity is linear due to the storage of the board state and the recursive call stack. The board state requires $O(N)$ space, and the maximum depth of the recursive call stack is $N$.
 
+Another way of writing:
 
+```C++
+class Solution {
+private:
+    int sz;
+    vector<bool> col, dg, udg;
+    vector<vector<string>> res;
+    vector<string> path;
+    void backtracking(int row) {
+        if (row == sz) {
+            res.push_back(path);
+            return;
+        }
+        for (int i = 0; i < sz; i++) {
+            if (!col[i] && !dg[row - i + sz] && !udg[row + i]) {
+                col[i] = dg[row - i + sz] = udg[row + i] = true;
+                path[row][i] = 'Q';
+                backtracking(row + 1);
+                path[row][i] = '.';
+                col[i] = dg[row - i + sz] = udg[row + i] = false;
+            }
+        }
+    }
+public:
+    vector<vector<string>> solveNQueens(int n) {
+        sz = n;
+        col = vector<bool>(n);
+        dg = udg = vector<bool>(2 * n);
+        path = vector<string>(n, string(n, '.'));
+        backtracking(0);
+        return res;
+    }
+};
+```
