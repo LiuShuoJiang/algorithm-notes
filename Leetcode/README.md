@@ -114,6 +114,7 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [46: Permutations](./0001-0099/0046-permutations/README.md)
 - [47: Permutations II](./0001-0099/0047-permutations-ii/README.md)
 - [51: N Queens](./0001-0099/0051-n-queens/README.md)
+- [52: N-Queens II](./0001-0099/0052-n-queens-ii/README.md)
 
 ## Monotonic Stack
 
@@ -126,6 +127,8 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 
 - [130: Surrounded Regions](./0100-0199/0130-surrounded-regions/README.md)
 - [200: Number of Islands](./0200-0299/0200-number-of-islands/README.md)
+- [127: Word Ladder](./0100-0199/0127-word-ladder/README.md)
+- [126: Word Ladder II](./0100-0199/0126-word-ladder-ii/README.md)
 
 ## Dynamic Programming
 
