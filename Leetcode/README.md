@@ -21,6 +21,10 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [148: Sort List](./0100-0199/0148-sort-list/README.md)
 - [912: Sort an Array](./0900-0999/0912-sort-an-array/README.md)
 
+## Bit Operations
+
+- [10032: Minimum Number of Operations to Make Array XOR Equal to K](./10000-10100/10032-minimum-number-of-operations-to-make-array-xor-equal-to-k/README.md)
+
 ## Hash Map
 
 - [242: Valid Anagram](./0200-0299/0242-valid-anagram/README.md)
