@@ -37,6 +37,7 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [15: 3 Sum](./0001-0099/0015-3sum/README.md)
 - [18: 4 Sum](./0001-0099/0018-4sum/README.md)
 - [128: Longest Consecutive Sequence](./0100-0199/0128-longest-consecutive-sequence/README.md)
+- [36: Valid Sudoku](./0001-0099/0036-valid-sudoku/README.md)
 
 ## Linked List
 
@@ -103,7 +104,7 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [700: Search in a Binary Search Tree](./0700-0799/0700-search-in-a-binary-search-tree/README.md)
 - [98: Validate Binary Search Tree](./0001-0099/0098-validate-binary-search-tree/README.md)
 
-## Backtracking Algorithm
+## Backtracking Algorithm (BFS)
 
 - [77: Combinations](./0001-0099/0077-combinations/README.md)
 - [216: Combination Sum III](./0200-0299/0216-combination-sum-iii/README.md)
@@ -119,6 +120,7 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [47: Permutations II](./0001-0099/0047-permutations-ii/README.md)
 - [51: N Queens](./0001-0099/0051-n-queens/README.md)
 - [52: N-Queens II](./0001-0099/0052-n-queens-ii/README.md)
+- [37: Sudoku Solver](./0001-0099/0037-sudoku-solver/README.md)
 
 ## Monotonic Stack
 
