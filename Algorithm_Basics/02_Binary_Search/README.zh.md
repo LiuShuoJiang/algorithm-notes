@@ -186,7 +186,7 @@ int find_2(int q) {
 
 若要求精确到小数点后第 $k$ 位，则`eps`一般可取 $10^{-(k+2)}$。
 
-> 例题：[数的三次方根](./binary_search_float.cpp)
+> 例题：[数的三次方根](./binary_search_float.zh.md)
 
 代码模板：
 

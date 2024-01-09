@@ -32,7 +32,7 @@ int main() {
     cin >> x;
     double l = -1000, r = 1000;
 
-    //也可以直接for循环100次
+    // we can also execute "for" loop for 100 times
     while (r - l >= 1e-8) {
         double mid = (l + r) / 2;
         if (mid * mid * mid <= x) l = mid;
