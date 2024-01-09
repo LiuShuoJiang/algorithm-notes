@@ -153,3 +153,4 @@ The problem set originates from [Leetcode Master](https://github.com/youngyangya
 - [377: Combination Sum IV](./0300-0399/0377-combination-sum-iv/README.md)
 - [322: Coin Change](./0300-0399/0322-coin-change/README.md)
 - [139: Word Break](./0100-0199/0139-word-break/README.md)
+- [120: Triangle](./0100-0199/0120-triangle/README.md)
