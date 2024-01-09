@@ -43,6 +43,8 @@ Constraints:
 
 ## Solution
 
+### Way 1
+
 ```C++
 class Solution {
 private:
@@ -87,6 +89,50 @@ private:
 public:
     void solveSudoku(vector<vector<char>>& board) {
         backtracking(board);
+    }
+};
+```
+
+### Way 2
+
+```C++
+class Solution {
+private:
+    bool line[9][9], column[9][9], cell[3][3][9];
+
+    bool backtracking(vector<vector<char>>& board, int row, int col) {
+        if (col == 9) row++, col = 0;
+        if (row == 9) return true;
+
+        if (board[row][col] != '.') return backtracking(board, row, col + 1);
+
+        for (int i = 0; i < 9; i++) {
+            if (!line[row][i] && !column[col][i] && !cell[row / 3][col / 3][i]) {
+                board[row][col] = '1' + i;
+                line[row][i] = column[col][i] = cell[row / 3][col / 3][i] = true;
+                if (backtracking(board, row, col + 1)) return true;
+                board[row][col] = '.';
+                line[row][i] = column[col][i] = cell[row / 3][col / 3][i] = false;
+            }
+        }
+        return false;
+    }
+public:
+    void solveSudoku(vector<vector<char>>& board) {
+        memset(line, 0, sizeof(line));
+        memset(column, 0, sizeof(column));
+        memset(cell, 0, sizeof(cell));
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (board[i][j] != '.') {
+                    int t = board[i][j] - '1';
+                    line[i][t] = column[j][t] = cell[i / 3][j / 3][t] = true;
+                }
+            }
+        }
+
+        backtracking(board, 0, 0);
     }
 };
 ```
